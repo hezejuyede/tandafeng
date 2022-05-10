@@ -1,0 +1,100 @@
+{
+  "id": "1550537",
+  "name": "dsjht",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12683882",
+      "name": "数据",
+      "font_class": "icon_huabanfuben",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "826065",
+      "name": "app4",
+      "font_class": "app4",
+      "unicode": "e6f4",
+      "unicode_decimal": 59124
+    },
+    {
+      "icon_id": "782361",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "3278668",
+      "name": "用户",
+      "font_class": "user",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "9627001",
+      "name": "资金",
+      "font_class": "zijin",
+      "unicode": "e88f",
+      "unicode_decimal": 59535
+    },
+    {
+      "icon_id": "5322149",
+      "name": "新闻",
+      "font_class": "xinwen",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "2459357",
+      "name": "系统",
+      "font_class": "system-copy",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "1284182",
+      "name": "加油卡",
+      "font_class": "jiayouqia",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "4486215",
+      "name": "zhejiangETCchongzhi",
+      "font_class": "zhejiangETCchongzhi",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "1125628",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "1240752",
+      "name": "审核",
+      "font_class": "shenhe1",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "6744040",
+      "name": "律领英首页",
+      "font_class": "shouye",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7898688",
+      "name": "管理员",
+      "font_class": "guanliyuan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+import Vue from 'vue';
+import Router from 'vue-router';
+
+//主页相关路由
+import Index from '../components/index/index'
+
+
+//数据管理
+import carbonEmissionAnalysis from '../components/DataManagement/carbonEmissionAnalysis'
+import regionalCarbonReport from '../components/DataManagement/regionalCarbonReport'
+import industryCarbonReport from '../components/DataManagement/industryCarbonReport'
+import enterpriseOverDischargeWarningReport from '../components/DataManagement/enterpriseOverDischargeWarningReport'
+
+
+Vue.use(Router);
+
+export default new Router({
+    routes: [
+        {
+            path: '/',
+            redirect: '/Index'
+        },
+        {
+            path: '/',
+            component: resolve => require(['../common/Home.vue'], resolve),
+            meta: {title: '自述文件'},
+            children: [
+                {
+                    path: '/Index',
+                    component: Index,
+                    meta: {title: '系统首页'}
+                },
+                {
+                    path: '/carbonEmissionAnalysis',
+                    component: carbonEmissionAnalysis,
+                    meta: {title: '碳排放分析'}
+                },
+                {
+                    path: '/regionalCarbonReport',
+                    component: regionalCarbonReport,
+                    meta: {title: '区域碳报表'}
+                },
+                {
+                    path: '/industryCarbonReport',
+                    component: industryCarbonReport,
+                    meta: {title: '行业碳报表'}
+                },
+                {
+                    path: '/enterpriseOverDischargeWarningReport',
+                    component: enterpriseOverDischargeWarningReport,
+                    meta: {title: '企业超排预警'}
+                },
+
+                {
+                    path: '/404',
+                    component: resolve => require(['../components/errPage/404.vue'], resolve),
+                    meta: {title: '404'}
+                },
+                {
+                    path: '/403',
+                    component: resolve => require(['../components/errPage/403.vue'], resolve),
+                    meta: {title: '403'}
+                }
+            ]
+        },
+        {
+            path: '/login',
+            component: resolve => require(['../components/indexLogin/Login.vue'], resolve)
+        },
+        {
+            path: '*',
+            redirect: '/404'
+        }
+    ]
+})
