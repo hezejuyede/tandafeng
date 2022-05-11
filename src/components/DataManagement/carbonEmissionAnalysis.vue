@@ -283,6 +283,7 @@
 
                     that.regionBar = result.data.data.bar;
                     that.regionData = result.data.data.data;
+
                     let myChart = this.$echarts.init(document.getElementById('regionBar'));
                     // 绘制图表
                     myChart.setOption(
@@ -311,11 +312,11 @@
                                         color: "#3A4467"
                                     }
                                 },
-                                offset:10,
-                                axisTick:{ //x轴刻度线
-                                    show:false,
+                                offset: 10,
+                                axisTick: { //x轴刻度线
+                                    show: false,
                                 },
-                                splitLine:{show: false},
+                                splitLine: {show: false},
                                 axisLabel: {
                                     textStyle: {
                                         color: "#FFF"
@@ -324,12 +325,12 @@
                             },
                             yAxis: {
                                 axisLine: {
-                                    show:false,
+                                    show: false,
                                 },
-                                axisTick:{ //y轴刻度线
-                                    show:false,
-                                    axisLine:{ //y轴
-                                        show:false
+                                axisTick: { //y轴刻度线
+                                    show: false,
+                                    axisLine: { //y轴
+                                        show: false
                                     },
 
                                 },
@@ -346,14 +347,11 @@
                             },
                             series: that.regionBar
                         }, true);
-
-
                 }
 
                 setRegionBar();
 
             },
-
             //设置区域线形图
             setRegionLine(startTime, endTime, region) {
                 let that = this;
