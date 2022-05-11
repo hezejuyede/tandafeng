@@ -395,14 +395,3 @@
 
 
 </style>
-<style>
-    .el-message-box .el-message-box__btns .el-button {
-        width: 100px;
-        height: 40px;
-    }
-    .el-select-dropdown__list {
-        padding: 6px 20px;
-    }
-
-</style>
-

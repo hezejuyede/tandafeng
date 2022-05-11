@@ -29,9 +29,9 @@
                 </template>
             </el-table-column>
             <el-table-column
+                width="80"
                 align="center"
                 label="碳排来源">
-                width="80">
                 <template slot-scope="scope">
                     <span v-if="scope.row.carbonEmissionSources==='01'">电力</span>
                     <span v-if="scope.row.carbonEmissionSources==='02'">钢铁</span>
@@ -42,11 +42,13 @@
                 </template>
             </el-table-column>
             <el-table-column
+                width="135"
                 prop="totalCarbonEmission"
                 label="碳排总量（万吨）"
                 align="center">
             </el-table-column>
             <el-table-column
+                width="120"
                 prop="excessDisplacement"
                 align="center"
                 label="超排量（万吨）">
@@ -55,7 +57,7 @@
                 prop="purchaseAmount"
                 label="预计购买碳配碳金额(万元)"
                 align="center"
-                width="200">
+                width="185">
             </el-table-column>
         </el-table>
     </div>

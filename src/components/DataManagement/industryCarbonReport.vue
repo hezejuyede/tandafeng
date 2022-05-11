@@ -361,12 +361,3 @@
 
 
 </style>
-<style>
-
-    .el-select-dropdown__list {
-        padding: 6px 20px;
-    }
-
-
-</style>
-

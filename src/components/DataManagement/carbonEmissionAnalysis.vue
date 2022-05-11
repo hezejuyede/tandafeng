@@ -282,12 +282,18 @@
                                 source: that.regionData
                             },
                             xAxis: {
+
                                 type: 'category',
                                 axisLine: {
                                     lineStyle: {
-                                        color: "#FFF"
+                                        color: "#3A4467"
                                     }
                                 },
+                                offset:10,
+                                axisTick:{ //x轴刻度线
+                                    show:false,
+                                },
+                                splitLine:{show: false},
                                 axisLabel: {
                                     textStyle: {
                                         color: "#FFF"
@@ -296,8 +302,18 @@
                             },
                             yAxis: {
                                 axisLine: {
+                                    show:false,
+                                },
+                                axisTick:{ //y轴刻度线
+                                    show:false,
+                                    axisLine:{ //y轴
+                                        show:false
+                                    },
+
+                                },
+                                splitLine: {
                                     lineStyle: {
-                                        color: "#FFF"
+                                        color: "#3A4467"
                                     }
                                 },
                                 axisLabel: {
@@ -351,9 +367,16 @@
                                 type: 'category',
                                 axisLine: {
                                     lineStyle: {
-                                        color: "#FFF"
+                                        color: "#3A4467"
                                     }
                                 },
+                                offset:10,
+                                axisTick:{ //y轴刻度线
+                                    show:false,
+
+                                },
+
+                                splitLine:{show: false},
                                 axisLabel: {
                                     textStyle: {
                                         color: "#FFF"
@@ -362,8 +385,19 @@
                             },
                             yAxis: {
                                 axisLine: {
+                                    show:false,
+                                },
+                                axisTick:{ //y轴刻度线
+                                    show:false,
+                                    axisLine:{ //y轴
+                                        show:false
+                                    },
+
+                                },
+
+                                splitLine: {
                                     lineStyle: {
-                                        color: "#FFF"
+                                        color: "#3A4467"
                                     }
                                 },
                                 axisLabel: {
@@ -427,23 +461,41 @@
                         dataset: {
                             source: that.industryData
                         },
+
                         xAxis: {
                             type: 'category',
                             axisLine: {
                                 lineStyle: {
-                                    color: "#FFF"
+                                    color: "#3A4467"
                                 }
+                            },
+                            offset:10,
+                            axisTick:{ //y轴刻度线
+                                show:false,
                             },
                             axisLabel: {
                                 textStyle: {
                                     color: "#FFF"
                                 }
+                            },
+
+                            splitLine: {
+                                show: false
                             }
                         },
                         yAxis: {
                             axisLine: {
+                                show:false,
+                            },
+                            axisTick:{ //y轴刻度线
+                                show:false,
+                                axisLine:{ //y轴
+                                    show:false
+                                },
+                            },
+                            splitLine: {
                                 lineStyle: {
-                                    color: "#FFF"
+                                    color: "#3A4467"
                                 }
                             },
                             axisLabel: {
@@ -493,8 +545,15 @@
                             type: 'category',
                             axisLine: {
                                 lineStyle: {
-                                    color: "#FFF"
+                                    color: "#3A4467"
                                 }
+                            },
+                            offset:10,
+                            splitLine: {
+                                show: false
+                            },
+                            axisTick:{ //y轴刻度线
+                                show:false
                             },
                             axisLabel: {
                                 textStyle: {
@@ -504,16 +563,27 @@
                         },
                         yAxis: {
                             axisLine: {
+                                show:false,
+                            },
+                            axisTick:{ //y轴刻度线
+                                show:false,
+                                axisLine:{ //y轴
+                                    show:false
+                                },
+                            },
+                            splitLine: {
                                 lineStyle: {
-                                    color: "#FFF"
+                                    color: "#3A4467"
                                 }
                             },
+
                             axisLabel: {
                                 textStyle: {
                                     color: "#FFF"
                                 }
                             }
                         },
+
                         series: that.industryLine
                     },true);
 
@@ -674,10 +744,12 @@
         .regionBar{
             height: 500px;
             width: 100%;
+            margin-bottom: 50px;
         }
         .regionLine{
             height: 500px;
             width: 100%;
+            margin-bottom: 50px;
         }
         .industryTable{
             margin-bottom: 50px;
@@ -685,10 +757,12 @@
         .industryBar{
             height: 500px;
             width: 100%;
+            margin-bottom: 50px;
         }
         .industryLine{
             height: 500px;
             width: 100%;
+            margin-bottom: 50px;
         }
         .enterpriseTable{
             height: 500px;
@@ -705,10 +779,5 @@
         .textColor{
             color:#ffffff;
         }
-    }
-</style>
-<style>
-    .el-select-dropdown__list {
-        padding: 6px 20px;
     }
 </style>
