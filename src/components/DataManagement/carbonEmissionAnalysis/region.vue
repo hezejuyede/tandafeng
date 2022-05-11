@@ -2,8 +2,8 @@
     <div>
         <el-table class="tb-edit"
                   :data="tables"
-                  :header-cell-style="{background:'#0D447A',color:'#ffffff',height:'60px',borderColor:'#6195C5',fontSize:'14px',fontWeight: 'bold'}"
-                  :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#ffffff',background:'#175A96',borderColor:'#6195C5'}"
+                  :header-cell-style="{background:'#0D447A',color:'#EFEBE9',height:'60px',borderColor:'#6195C5',fontSize:'14px',fontWeight: 'bold'}"
+                  :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#DEE3E8',background:'#175A96',borderColor:'#6195C5'}"
                   border
                   id="rebateSetTable1"
                   ref="moviesTable"
