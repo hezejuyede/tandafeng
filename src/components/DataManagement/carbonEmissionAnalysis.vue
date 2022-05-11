@@ -222,14 +222,36 @@
 
             //导出打印
             importPrinting() {
-                let wb = XLSX.utils.table_to_book(document.querySelector('#rebateSetTable'));
+                let wb = XLSX.utils.table_to_book(document.querySelector('#rebateSetTable1'));
                 /* get binary string as output */
                 let wbout = XLSX.write(wb, {bookType: 'xlsx', bookSST: true, type: 'array'});
                 try {
-                    FileSaver.saveAs(new Blob([wbout], {type: 'application/octet-stream'}), '订单统计列表.xlsx');
+                    FileSaver.saveAs(new Blob([wbout], {type: 'application/octet-stream'}), '区域碳报表.xlsx');
                 } catch (e) {
                     if (typeof console !== 'undefined')
                         console.log(e, wbout)
+                }
+
+
+                let wb2 = XLSX.utils.table_to_book(document.querySelector('#rebateSetTable2'));
+                /* get binary string as output */
+                let wbout2 = XLSX.write(wb2, {bookType: 'xlsx', bookSST: true, type: 'array'});
+                try {
+                    FileSaver.saveAs(new Blob([wbout2], {type: 'application/octet-stream'}), '行业碳报表.xlsx');
+                } catch (e) {
+                    if (typeof console !== 'undefined')
+                        console.log(e, wbout2)
+                }
+
+
+                let wb3 = XLSX.utils.table_to_book(document.querySelector('#rebateSetTable3'));
+                /* get binary string as output */
+                let wbout3 = XLSX.write(wb3, {bookType: 'xlsx', bookSST: true, type: 'array'});
+                try {
+                    FileSaver.saveAs(new Blob([wbout3], {type: 'application/octet-stream'}), '企业超排预警.xlsx');
+                } catch (e) {
+                    if (typeof console !== 'undefined')
+                        console.log(e, wbout3)
                 }
             },
 

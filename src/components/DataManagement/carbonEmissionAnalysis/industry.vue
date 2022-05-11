@@ -5,7 +5,7 @@
                   :header-cell-style="{background:'#0D447A',color:'#ffffff',height:'60px',borderColor:'#6195C5',fontSize:'14px',fontWeight: 'bold'}"
                   :cell-style="{fontSize:'14px',fontWeight: 'norma',color:'#ffffff',background:'#175A96',borderColor:'#6195C5'}"
                   border
-                  id="rebateSetTable"
+                  id="rebateSetTable2"
                   ref="moviesTable"
                   highlight-current-row
                   style="width: 98%;margin: auto">
