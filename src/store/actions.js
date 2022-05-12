@@ -42,9 +42,7 @@ export const userLogin = ({commit, state}, userInfo) => {
 
 
 export const logout = ({commit, state}, userInfo) => {
-    this.commit(types.SET_TOKEN, '');
-    this.commit('user/setUserInfo', {});
+    commit(types.SET_TOKEN, '');
+    commit(types.SET_USER_INFO, {});
     removeAllItem();
-    this.$router.push('/login')
-
 };

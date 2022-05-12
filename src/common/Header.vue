@@ -129,7 +129,7 @@
     import bus from '../assets/js/bus';
     import upload from '../assets/js/upload'
     import url from '../assets/js/URL'
-
+    import {mapActions} from 'vuex'
     export default {
         data() {
             return {
@@ -232,7 +232,7 @@
                         cancelButtonText: '取消',
                         type: 'warning'
                     }).then(() => {
-                        sessionStorage.removeItem('adminToken');
+                        this.logout();
                         this.$router.push('/login');
                     }).catch(() => {
 
@@ -473,6 +473,11 @@
             handleRemove(file, fileList) {
                 this.hideUpload = fileList.length >= 1
             },
+
+            ...mapActions([
+                'logout',
+            ]),
+
 
         },
 
