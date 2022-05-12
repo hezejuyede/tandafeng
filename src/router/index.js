@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import {getItem} from '../utils/storage'
 
 //主页相关路由
 import Index from '../components/index/index'
@@ -71,5 +72,8 @@ export default new Router({
             path: '*',
             redirect: '/404'
         }
-    ]
+    ],
+
 })
+
+

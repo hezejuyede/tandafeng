@@ -10,7 +10,7 @@ import '../static/css/icon.css';
 import "babel-polyfill";
 import "./assets/less/base.less";
 import echarts from 'echarts';
-
+import index from './store';
 import Viewer from 'v-viewer';
 import 'viewerjs/dist/viewer.css';
 
@@ -38,30 +38,24 @@ Vue.use(ElementUI, {size: 'small'});
 Vue.prototype.axios = axios;
 
 
-
 router.beforeEach((to, from, next) => {
-    let adminToken = sessionStorage.getItem("adminToken");
+    let adminToken = localStorage.getItem("token");
     if (to.path === '/login' || to.path === '/register') {
         next();
-    } else {
+    }
+    else {
         if (adminToken === null) {
             next('/login');
-        } else if (to.path === '/RoleManagement' || to.path === '/DepartmentManagement' || to.path === '/UserManagement' || to.path === '/MenuManagement') {
-            let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-            let userName = userInfo.userName;
-            if (userName === '15550739985' || userName === '15254105620' || userName === '13256189181' || userName === '18764028855') {
-                next()
-            } else {
-                next('/403');
-            }
-
-        } else {
+        }
+        else {
             next();
         }
     }
 });
 
+
 new Vue({
     router,
+    store: index,
     render: h => h(App)
 }).$mount('#app');

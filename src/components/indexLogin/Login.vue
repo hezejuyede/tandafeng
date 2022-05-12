@@ -70,11 +70,14 @@
 <script type="text/ecmascript-6">
     import axios from 'axios';
     import Modal from '../../common/modal'
+    import {mapActions} from 'vuex'
 
     export default {
         components: {Modal},
         data: function(){
+
             return {
+
                 message: '',
                 HideModal:true,
                 checked:false,
@@ -100,6 +103,8 @@
         },
 
         methods: {
+
+
             //页面加载检查用户是否登陆，没有登陆就加载登陆页面
             getAdminState() {
                 let loginInfo = JSON.parse(localStorage.getItem("loginAdminInfo"));
@@ -127,22 +132,20 @@
                                 "checked": "1"
                             };
                             localStorage.setItem("loginAdminInfo", JSON.stringify(loginAdminInfo));
-                            this.userLogin(this.ruleForm.username, this.ruleForm.password)
+                            this.doUserLogin(this.ruleForm.username, this.ruleForm.password)
                         }
                         else {
-                            this.userLogin(this.ruleForm.username, this.ruleForm.password)
+                            this.doUserLogin(this.ruleForm.username, this.ruleForm.password)
                         }
                     }
                     else {
                         this.message = "请正确填写信息";
                         this.HideModal = false;
                         const that = this;
-
                         function a() {
                             that.message = "";
                             that.HideModal = true;
                         }
-
                         setTimeout(a, 2000);
                         return false;
                     }
@@ -150,44 +153,20 @@
             },
 
 
-            //封装等用户登陆
-            userLogin(data1, data2) {
-                axios.post("/userLogin",
-                    {
-                        "app_user_name": data1,
-                        "pwd": data2,
-                        "type": "system"
+            //进行登录
+            doUserLogin(username, password) {
+                this.userLogin({
+                    username: username,
+                    password: password
+                });
+                setTimeout(() => {
+                    this.$router.push("/Index")
+                }, 1000)
+            },
 
-                    },
-                    {
-                        headers: {
-                            "Content-Type":"application/json",
-                            "client_id":"webapp",
-                            "client_secret":"123456"
-                        }
-                    }
-                )
-                    .then((res) => {
-                        if (res.data.code === 200) {
-                            sessionStorage.setItem("adminToken", JSON.stringify(res.data.data.access_token));
-                            sessionStorage.setItem("refresh_token", JSON.stringify(res.data.data.refresh_token));
-                            localStorage.setItem('userInfo', JSON.stringify(res.data.data.userInfo));
-                            this.$message.success(res.data.msg);
-                            setTimeout(() => {
-                                this.$router.push("/Index")
-                            }, 1000)
-                        } else {
-                            this.$message.warning(res.data.msg);
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    });
-            }
-
-
-
-
+            ...mapActions([
+                'userLogin',
+            ]),
         }
     }
 </script>

@@ -18,8 +18,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-    import url from '../../assets/js/URL';
-    import {getNowTime, getLestWeekTime} from '../../assets/js/api'
+    import {mapGetters} from 'vuex'
 
     export default {
         name: 'index',
@@ -65,215 +64,29 @@
                 rHeight:"",
             }
         },
-        computed: {},
-        components: {},
-        mounted() {
-            /*this.getUserLine();
-            this.getOrderLine();
-            this.setHeight();*/
+        computed: {
+            ...mapGetters([
+                'token',
+            ])
+        },
+        components: {
 
+        },
+        mounted() {
+            this.getToken()
 
         },
         created() {
-            this.getAdminState();
+
+
         },
         methods: {
-            //页面加载检查用户是否登陆，没有登陆就加载登陆页面
-            getAdminState() {
-                const userInfo = localStorage.getItem("userInfo");
-                if (userInfo === null) {
 
+            getToken(){
+                console.log(this.token)
 
-                } else {
-                    let nowTime = getNowTime();
-                    let lestWeekTime = getLestWeekTime();
-                    let times = [];
-                    times.push(lestWeekTime);
-                    times.push(nowTime);
-                    this.examineTime = times;
-                    this.loadingShowData();
-                }
             },
 
-
-            //瞬间加载数据
-            loadingShowData() {
-
-                this.$post(" " + url + "/verify/yunWeiQuery", {})
-                    .then((res) => {
-                        if (res.code === 200) {
-                            if (JSON.stringify(res.data) !== "{}") {
-                                this.iconData[0].count = res.data.TOAUDITORDERNUM;
-                                this.iconData[1].count = res.data.TOAUDITQIYENUM;
-                                this.iconData[2].count = res.data.DRIVERNUM;
-                                this.iconData[3].count = res.data.ENTERPRISENUM;
-                                this.iconData[4].count = res.data.TOTALMONEY;
-                                this.iconData[5].count = res.data.KPNUM;
-                            } else {
-                                this.$message.warning("暂无数据");
-                            }
-                        } else {
-                            this.$message.warning(res.data.msg);
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    })
-            },
-
-
-            //获取用户折线图
-            getUserLine() {
-                this.$post(" " + url + "/census/userLine", {
-                    "beginTime":this.examineTime[0],
-                    "endTime":this.examineTime[1]
-                })
-                    .then((res) => {
-                        if (res.code === 200) {
-                            if (JSON.stringify(res.data) !== "{}") {
-                                let yData = [];
-                                for (let i = 0; i < res.data.yAxis.length; i++) {
-                                    let json = {
-                                        "name": res.data.yAxis[i].name,
-                                        "type": 'line',
-                                        "stack": '数量',
-                                        "data": res.data.yAxis[i].data
-                                    };
-                                    yData.push(json)
-                                }
-
-
-                                let myChart = this.$echarts.init(document.getElementById('dataBar1'));
-                                // 绘制图表
-                                myChart.setOption({
-                                    title : {
-                                        text: '用户数量显示',
-                                        subtext: '最近30天'
-                                    },
-                                    tooltip : {
-                                        trigger: 'axis'
-                                    },
-                                    grid:{
-                                        x:60,
-                                        borderWidth:1
-                                    },
-                                    toolbox: {
-                                        show : true,
-                                        feature : {
-                                            mark : {show: true},
-                                            /*    dataView : {show: true, readOnly: false},*/
-                                            magicType : {show: true, type: ['line', 'bar']},
-                                            restore : {show: true},
-                                            saveAsImage : {show: true}
-                                        }
-                                    },
-                                    calculable : true,
-                                    xAxis : [
-                                        {
-                                            type : 'category',
-                                            boundaryGap : false,
-                                            data : res.data.xAxis
-                                        }
-                                    ],
-                                    yAxis : [
-                                        {
-                                            type : 'value'
-                                        }
-                                    ],
-                                    series : yData
-                                });
-
-                            }
-                            else {
-                                this.$message.warning("暂无数据");
-                            }
-                        } else {
-                            this.$message.warning(res.data.msg);
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    })
-            },
-
-
-            //获取订单折线图
-            getOrderLine() {
-                this.$post(" " + url + "/census/orderLine", {
-                    "beginTime":this.examineTime[0],
-                    "endTime":this.examineTime[1]
-                })
-                    .then((res) => {
-                        if (res.code === 200) {
-                            if (JSON.stringify(res.data) !== "{}") {
-                                let xData = [];
-                                let yData = [];
-
-                                for (let i = 0; i < res.data.length; i++) {
-                                    let yJson = res.data[i].totalCount;
-                                    let xJson = res.data[i].censusDate;
-                                    yData.push(yJson);
-                                    xData.push(xJson);
-
-                                }
-                                let myChart = this.$echarts.init(document.getElementById('dataBar2'));
-                                // 绘制图表
-                                myChart.setOption({
-                                    title : {
-                                        text: '订单数量显示',
-                                        subtext: '最近30天'
-                                    },
-                                    tooltip : {
-                                        trigger: 'axis'
-                                    },
-                                    grid:{
-                                        x:60,
-                                        borderWidth:1
-                                    },
-                                    toolbox: {
-                                        show : true,
-                                        feature : {
-                                            mark : {show: true},
-                                            /*    dataView : {show: true, readOnly: false},*/
-                                            magicType : {show: true, type: ['line', 'bar']},
-                                            restore : {show: true},
-                                            saveAsImage : {show: true}
-                                        }
-                                    },
-                                    calculable : true,
-                                    xAxis : [
-                                        {
-                                            type : 'category',
-                                            boundaryGap : false,
-                                            data : xData
-                                        }
-                                    ],
-                                    yAxis : [
-                                        {
-                                            type : 'value'
-                                        }
-                                    ],
-                                    series : [
-                                        {
-                                            name: '每日订单数量',
-                                            type: 'line',
-                                            stack: '总量',
-                                            data: yData
-                                        }]
-                                });
-
-                            }
-                            else {
-                                this.$message.warning("暂无数据");
-                            }
-                        } else {
-                            this.$message.warning(res.data.msg);
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    })
-            },
 
             //动态设置高度
             setHeight() {

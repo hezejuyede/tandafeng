@@ -186,14 +186,7 @@
         },
         computed: {
             username() {
-                let info = JSON.parse(localStorage.getItem('userInfo'));
-                if (info !== null) {
-                    let username = info.userName;
-                    return username ? username : this.name;
-                }
-                else {
-                    this.$router.push("/login")
-                }
+
 
             }
         },
@@ -203,15 +196,7 @@
         methods: {
             //页面加载检查用户是否登陆，没有登陆就加载登陆页面
             getAdminState() {
-                let adminToken = JSON.parse(sessionStorage.getItem("adminToken"));
-                let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-                if (adminToken === null) {
-                    this.$router.push("/login")
-                }
-                else {
-                    this.avatar =userInfo.headPath;
-                    this.headers = {"source": "sender", 'Authorization': 'Bearer ' + adminToken}
-                }
+
 
 
             },
@@ -488,17 +473,6 @@
             handleRemove(file, fileList) {
                 this.hideUpload = fileList.length >= 1
             },
-
-
-
-
-
-
-
-
-
-
-
 
         },
 
