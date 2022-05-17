@@ -68,7 +68,7 @@
                     },
                     {
                         icon: 'iconfont el-icon-s-platform',
-                        index: '/largeDataScreen',
+                        index: '/LargeDataScreen',
                         title: '数据大屏'
                     },
                 ]

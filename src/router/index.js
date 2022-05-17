@@ -13,6 +13,9 @@ import industryCarbonReport from '../components/DataManagement/industryCarbonRep
 import enterpriseOverDischargeWarningReport from '../components/DataManagement/enterpriseOverDischargeWarningReport'
 
 
+//数据大屏
+import LargeDataScreen from '../components/LargeDataScreen/index'
+
 Vue.use(Router);
 
 export default new Router({
@@ -67,6 +70,10 @@ export default new Router({
         {
             path: '/login',
             component: resolve => require(['../components/indexLogin/Login.vue'], resolve)
+        },
+        {
+            path: '/LargeDataScreen',
+            component: LargeDataScreen
         },
         {
             path: '*',
