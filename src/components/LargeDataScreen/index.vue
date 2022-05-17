@@ -155,7 +155,8 @@
                             <img src="picture/t_5.png" alt="">
                             碳排放峰值预测
                         </div>
-                        <div id="chart_4" class="echart fl t_btn4" style="width:100%;height: 250px;cursor: pointer;"></div>
+                        <div id="chart_4" class="echart fl t_btn4"
+                             style="width:100%;height: 250px;cursor: pointer;"></div>
                     </div>
                 </div>
             </div>
@@ -168,16 +169,10 @@
     export default {
         name: 'index',
         data() {
-            return {
-
-            }
+            return {}
         },
-        computed: {
-
-        },
-        components: {
-
-        },
+        computed: {},
+        components: {},
         mounted() {
             this.echart_1();
             this.echart_2();
@@ -186,14 +181,10 @@
 
         },
         created() {
-            this.setHeight();
+
         },
         methods: {
 
-            //动态设置高度
-            setHeight() {
-                $(".data_content").height(window.innerHeight - 120);
-            },
             //echart_1 全省碳排放趋势预测
             echart_1() {
                 // 基于准备好的dom，初始化echarts实例
@@ -310,7 +301,7 @@
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = this.$echarts.init(document.getElementById('chart_2'));
                 myChart.clear();
-                myChart.setOption( {
+                myChart.setOption({
                     title: {
                         text: ''
                     },
@@ -840,7 +831,7 @@
             //湖南省飞机场
             echart_4() {
                 // 基于准备好的dom，初始化echarts实例
-                var myChart =this.$echarts.init(document.getElementById('chart_4'));
+                var myChart = this.$echarts.init(document.getElementById('chart_4'));
                 myChart.clear();
                 myChart.setOption({
                     title: {
