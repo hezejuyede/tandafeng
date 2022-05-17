@@ -165,6 +165,7 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
+    import '../../utils/shandong'
 
     export default {
         name: 'index',
@@ -178,6 +179,7 @@
             this.echart_2();
             this.echart_3();
             this.echart_4();
+            this.echart_map();
 
         },
         created() {
@@ -591,7 +593,7 @@
                         return res;
                     };
 
-                    myChart.setOption(option = {
+                    myChart.setOption({
                         tooltip: {
                             trigger: 'item',
                             formatter: function loadData(result) {

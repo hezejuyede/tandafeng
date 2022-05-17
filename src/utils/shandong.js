@@ -1,3 +1,6 @@
+import echart from 'echarts';
+
+
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -16,8 +19,7 @@
         }
     }
     if (!echarts) {
-        log('ECharts is not Loaded');
-        return;
+        echarts=echart;
     }
     if (!echarts.registerMap) {
         log('ECharts Map is not loaded')
