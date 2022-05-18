@@ -180,7 +180,6 @@
             this.echart_3();
             this.echart_4();
             this.echart_map();
-
         },
         created() {
 
