@@ -166,6 +166,13 @@
 </template>
 <script type="text/ecmascript-6">
     import '../../utils/shandong'
+    import {
+        carbonEmissionPrediction,
+        carbonEmissionWarning,
+        electricityCarbonEmissionsPeak,
+        peakCarbonEmission,
+        shandongMap
+    } from "../../api/largeDataScreen";
 
     export default {
         name: 'index',
@@ -175,19 +182,24 @@
         computed: {},
         components: {},
         mounted() {
-            this.echart_1();
-            this.echart_2();
-            this.echart_3();
-            this.echart_4();
-            this.echart_map();
+            this.doSearch();
         },
         created() {
 
         },
         methods: {
 
-            //echart_1 全省碳排放趋势预测
-            echart_1() {
+            //页面初始
+            doSearch() {
+                this.carbonEmissionPrediction();
+                this.carbonEmissionWarning();
+                this.electricityCarbonEmissionsPeak();
+                this.peakCarbonEmission();
+                this.shandongMap();
+            },
+
+            //全省碳排放趋势预测
+            carbonEmissionPrediction() {
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = this.$echarts.init(document.getElementById('chart_1'));
                 myChart.clear();
@@ -297,8 +309,8 @@
                 });
             },
 
-            //电子商务销售额、订单数
-            echart_2() {
+            //不同区域碳排放预警
+            carbonEmissionWarning() {
                 // 基于准备好的dom，初始化echarts实例
                 var myChart = this.$echarts.init(document.getElementById('chart_2'));
                 myChart.clear();
@@ -405,8 +417,251 @@
                 });
             },
 
-            // echart_map中国地图
-            echart_map() {
+
+            //电力行业碳排放达峰预测
+            electricityCarbonEmissionsPeak() {
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = this.$echarts.init(document.getElementById('chart_3'));
+                myChart.clear();
+                myChart.setOption({
+                    title: {
+                        text: ''
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['低碳情景', '基准情景', '高耗能情景'],
+                        textStyle: {
+                            color: '#fff'
+                        },
+                        top: '8%'
+                    },
+                    grid: {
+                        top: '30%',
+                        left: '5%',
+                        right: '5%',
+                        bottom: '5%',
+                        containLabel: true
+                    },
+                    color: ['#FF4949', '#FFA74D', '#FFEA51', '#4BF0FF', '#44AFF0', '#4E82FF', '#584BFF', '#BE4DFF', '#F845F1'],
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['2018', '2022', '2026', '2030', '2034', '2038', '2042', '2046', '2050'],
+                        splitLine: {
+                            show: false
+                        },
+                        offset: 10,
+                        axisTick: { //y轴刻度线
+                            show: false,
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#fff'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        name: '单位万吨',
+                        nameTextStyle: {
+                            color: "#FFF",
+                            nameLocation: "center",
+                        },
+                        type: 'value',
+                        splitLine: {
+                            lineStyle: {
+                                color: "#3A4467"
+                            }
+                        },
+                        min: 50,
+                        axisLine: {
+                            show: false,
+                        },
+                        axisTick: { //y轴刻度线
+                            show: false,
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: "#FFF"
+                            }
+                        },
+                    },
+                    series: [
+                        {
+                            name: '低碳情景',
+                            type: 'line',
+                            lineStyle: {
+                                color: '#53C7A0'
+                            },
+                            smooth: false, //true 有弧度 ，false 没弧度（直线）
+                            symbol: 'circle',
+                            itemStyle: {
+                                normal: {
+                                    color: '#53C7A0'
+                                }
+                            },
+                            data: [78, 90, 108, 105, 95, 86, 76, 72, 73]
+                        },
+                        {
+                            name: '基准情景',
+                            type: 'line',
+                            lineStyle: {
+                                color: '#28A1FB'
+                            },
+                            smooth: false, //true 有弧度 ，false 没弧度（直线）
+                            symbol: 'circle',
+                            itemStyle: {
+                                normal: {
+                                    color: '#28A1FB'
+                                }
+                            },
+                            data: [78, 89, 98, 108, 109, 105, 97, 86, 69.4]
+                        },
+                        {
+                            name: '高耗能情景',
+                            type: 'line',
+                            lineStyle: {
+                                color: '#E37A17'
+                            },
+                            smooth: false, //true 有弧度 ，false 没弧度（直线）
+                            symbol: 'circle',
+                            itemStyle: {
+                                normal: {
+                                    color: '#E37A17'
+                                }
+                            },
+                            data: [81, 86, 93, 105, 118, 126, 128, 124, 107]
+                        },
+                    ]
+                });
+            },
+
+            //碳排放峰值预测
+            peakCarbonEmission() {
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = this.$echarts.init(document.getElementById('chart_4'));
+                myChart.clear();
+                myChart.setOption({
+                    title: {
+                        text: ''
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['低碳情景', '基准情景', '高耗能情景'],
+                        textStyle: {
+                            color: '#fff'
+                        },
+                        top: '8%'
+                    },
+                    grid: {
+                        top: '30%',
+                        left: '5%',
+                        right: '5%',
+                        bottom: '5%',
+                        containLabel: true
+                    },
+                    color: ['#FF4949', '#FFA74D', '#FFEA51', '#4BF0FF', '#44AFF0', '#4E82FF', '#584BFF', '#BE4DFF', '#F845F1'],
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['2018', '2022', '2026', '2030', '2034', '2038', '2042', '2046', '2050'],
+                        splitLine: {
+                            show: false
+                        },
+                        offset: 10,
+                        axisTick: { //y轴刻度线
+                            show: false,
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: '#fff'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        name: '单位万吨',
+                        nameTextStyle: {
+                            color: "#FFF",
+                            nameLocation: "center",
+                        },
+                        type: 'value',
+                        splitLine: {
+                            lineStyle: {
+                                color: "#3A4467"
+                            }
+                        },
+                        min: 50,
+                        axisLine: {
+                            show: false,
+                        },
+                        axisTick: { //y轴刻度线
+                            show: false,
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: "#FFF"
+                            }
+                        },
+                    },
+                    series: [
+                        {
+                            name: '低碳情景',
+                            type: 'line',
+                            lineStyle: {
+                                color: '#53C7A0'
+                            },
+                            smooth: false, //true 有弧度 ，false 没弧度（直线）
+                            symbol: 'circle',
+                            itemStyle: {
+                                normal: {
+                                    color: '#53C7A0'
+                                }
+                            },
+                            data: [78, 90, 108, 105, 95, 86, 76, 72, 73]
+                        },
+                        {
+                            name: '基准情景',
+                            type: 'line',
+                            lineStyle: {
+                                color: '#28A1FB'
+                            },
+                            smooth: false, //true 有弧度 ，false 没弧度（直线）
+                            symbol: 'circle',
+                            itemStyle: {
+                                normal: {
+                                    color: '#28A1FB'
+                                }
+                            },
+                            data: [78, 89, 98, 108, 109, 105, 97, 86, 69.4]
+                        },
+                        {
+                            name: '高耗能情景',
+                            type: 'line',
+                            lineStyle: {
+                                color: '#E37A17'
+                            },
+                            smooth: false, //true 有弧度 ，false 没弧度（直线）
+                            symbol: 'circle',
+                            itemStyle: {
+                                normal: {
+                                    color: '#E37A17'
+                                }
+                            },
+                            data: [81, 86, 93, 105, 118, 126, 128, 124, 107]
+                        },
+                    ]
+                });
+                window.addEventListener("resize", function () {
+                    myChart.resize();
+                });
+            },
+
+
+            //山东碳排放地图
+            shandongMap() {
                 var myChart = this.$echarts.init(document.getElementById('chart_map'));
 
                 function showProvince() {
@@ -709,247 +964,6 @@
                     myChart.resize();
                 });
             },
-
-            //echart_3货物周转量
-            echart_3() {
-                // 基于准备好的dom，初始化echarts实例
-                var myChart = this.$echarts.init(document.getElementById('chart_3'));
-                myChart.clear();
-                myChart.setOption({
-                    title: {
-                        text: ''
-                    },
-                    tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data: ['低碳情景', '基准情景', '高耗能情景'],
-                        textStyle: {
-                            color: '#fff'
-                        },
-                        top: '8%'
-                    },
-                    grid: {
-                        top: '30%',
-                        left: '5%',
-                        right: '5%',
-                        bottom: '5%',
-                        containLabel: true
-                    },
-                    color: ['#FF4949', '#FFA74D', '#FFEA51', '#4BF0FF', '#44AFF0', '#4E82FF', '#584BFF', '#BE4DFF', '#F845F1'],
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: ['2018', '2022', '2026', '2030', '2034', '2038', '2042', '2046', '2050'],
-                        splitLine: {
-                            show: false
-                        },
-                        offset: 10,
-                        axisTick: { //y轴刻度线
-                            show: false,
-                        },
-                        axisLine: {
-                            lineStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        name: '单位万吨',
-                        nameTextStyle: {
-                            color: "#FFF",
-                            nameLocation: "center",
-                        },
-                        type: 'value',
-                        splitLine: {
-                            lineStyle: {
-                                color: "#3A4467"
-                            }
-                        },
-                        min: 50,
-                        axisLine: {
-                            show: false,
-                        },
-                        axisTick: { //y轴刻度线
-                            show: false,
-                        },
-                        axisLabel: {
-                            textStyle: {
-                                color: "#FFF"
-                            }
-                        },
-                    },
-                    series: [
-                        {
-                            name: '低碳情景',
-                            type: 'line',
-                            lineStyle: {
-                                color: '#53C7A0'
-                            },
-                            smooth: false, //true 有弧度 ，false 没弧度（直线）
-                            symbol: 'circle',
-                            itemStyle: {
-                                normal: {
-                                    color: '#53C7A0'
-                                }
-                            },
-                            data: [78, 90, 108, 105, 95, 86, 76, 72, 73]
-                        },
-                        {
-                            name: '基准情景',
-                            type: 'line',
-                            lineStyle: {
-                                color: '#28A1FB'
-                            },
-                            smooth: false, //true 有弧度 ，false 没弧度（直线）
-                            symbol: 'circle',
-                            itemStyle: {
-                                normal: {
-                                    color: '#28A1FB'
-                                }
-                            },
-                            data: [78, 89, 98, 108, 109, 105, 97, 86, 69.4]
-                        },
-                        {
-                            name: '高耗能情景',
-                            type: 'line',
-                            lineStyle: {
-                                color: '#E37A17'
-                            },
-                            smooth: false, //true 有弧度 ，false 没弧度（直线）
-                            symbol: 'circle',
-                            itemStyle: {
-                                normal: {
-                                    color: '#E37A17'
-                                }
-                            },
-                            data: [81, 86, 93, 105, 118, 126, 128, 124, 107]
-                        },
-                    ]
-                });
-            },
-
-            //湖南省飞机场
-            echart_4() {
-                // 基于准备好的dom，初始化echarts实例
-                var myChart = this.$echarts.init(document.getElementById('chart_4'));
-                myChart.clear();
-                myChart.setOption({
-                    title: {
-                        text: ''
-                    },
-                    tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data: ['低碳情景', '基准情景', '高耗能情景'],
-                        textStyle: {
-                            color: '#fff'
-                        },
-                        top: '8%'
-                    },
-                    grid: {
-                        top: '30%',
-                        left: '5%',
-                        right: '5%',
-                        bottom: '5%',
-                        containLabel: true
-                    },
-                    color: ['#FF4949', '#FFA74D', '#FFEA51', '#4BF0FF', '#44AFF0', '#4E82FF', '#584BFF', '#BE4DFF', '#F845F1'],
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: ['2018', '2022', '2026', '2030', '2034', '2038', '2042', '2046', '2050'],
-                        splitLine: {
-                            show: false
-                        },
-                        offset: 10,
-                        axisTick: { //y轴刻度线
-                            show: false,
-                        },
-                        axisLine: {
-                            lineStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        name: '单位万吨',
-                        nameTextStyle: {
-                            color: "#FFF",
-                            nameLocation: "center",
-                        },
-                        type: 'value',
-                        splitLine: {
-                            lineStyle: {
-                                color: "#3A4467"
-                            }
-                        },
-                        min: 50,
-                        axisLine: {
-                            show: false,
-                        },
-                        axisTick: { //y轴刻度线
-                            show: false,
-                        },
-                        axisLabel: {
-                            textStyle: {
-                                color: "#FFF"
-                            }
-                        },
-                    },
-                    series: [
-                        {
-                            name: '低碳情景',
-                            type: 'line',
-                            lineStyle: {
-                                color: '#53C7A0'
-                            },
-                            smooth: false, //true 有弧度 ，false 没弧度（直线）
-                            symbol: 'circle',
-                            itemStyle: {
-                                normal: {
-                                    color: '#53C7A0'
-                                }
-                            },
-                            data: [78, 90, 108, 105, 95, 86, 76, 72, 73]
-                        },
-                        {
-                            name: '基准情景',
-                            type: 'line',
-                            lineStyle: {
-                                color: '#28A1FB'
-                            },
-                            smooth: false, //true 有弧度 ，false 没弧度（直线）
-                            symbol: 'circle',
-                            itemStyle: {
-                                normal: {
-                                    color: '#28A1FB'
-                                }
-                            },
-                            data: [78, 89, 98, 108, 109, 105, 97, 86, 69.4]
-                        },
-                        {
-                            name: '高耗能情景',
-                            type: 'line',
-                            lineStyle: {
-                                color: '#E37A17'
-                            },
-                            smooth: false, //true 有弧度 ，false 没弧度（直线）
-                            symbol: 'circle',
-                            itemStyle: {
-                                normal: {
-                                    color: '#E37A17'
-                                }
-                            },
-                            data: [81, 86, 93, 105, 118, 126, 128, 124, 107]
-                        },
-                    ]
-                });
-                window.addEventListener("resize", function () {
-                    myChart.resize();
-                });
-            }
         }
 
     }
