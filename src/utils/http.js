@@ -10,7 +10,7 @@ const service = axios.create({
 
 //http request 管理端请求拦截器
 service.interceptors.request.use(config => {
-        let token = JSON.parse(window.sessionStorage.getItem("adminToken"));
+        let token = JSON.parse(window.localStorage.getItem("token"));
         if (token) {
             config.headers = {"source_": "admin", 'Authorization': 'Bearer ' + token, "Content-Type": "application/json"}
         }
@@ -36,6 +36,7 @@ service.interceptors.response.use(
             this.$router.push("/login")
         }
         else {
+            console.log("响应拦截器成功")
 
         }
         return response;
