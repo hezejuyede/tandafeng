@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapState, mapGetters} from 'vuex'
 
     export default {
         name: 'modal',
@@ -20,17 +20,25 @@
         computed: {
             ...mapGetters([
                 'TMP',
-            ])
+            ]),
+            ...mapState([
+                'TMP',
+            ]),
 
 
         },
         watch: {
-            '$store.state.TMP' () {
-               console.log(this.TMP)
+            TMP: {
+                handler(newVal, oldVal) {
+                    console.log(newVal);
+                    console.log(oldVal)
+                },
+                immediate: true,
+                deep: true
             }
+
         },
-        methods: {
-        },
+        methods: {},
         props: {},
     }
 </script>
