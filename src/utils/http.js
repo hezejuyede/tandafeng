@@ -13,6 +13,7 @@ service.interceptors.request.use(config => {
         if (token) {
             config.headers = {"source_": "admin", 'Authorization': 'Bearer ' + token, "Content-Type": "application/json"}
             store.commit('SET_TMP_VALUE', {name: 'request_count', value: store.state.TMP['request_count'] + 1})
+          /*  console.log("请求拦截器成功")*/
         } else {
             config.headers = {
                 "client_id": "webApp",
@@ -37,7 +38,7 @@ service.interceptors.response.use(
             setTimeout(()=>{
                 store.commit('SET_TMP_VALUE', {name: 'request_count', value: store.state.TMP['request_count'] - 1})
             },1000)
-            console.log("响应拦截器成功")
+           /* console.log("响应拦截器成功")*/
 
         }
         return response;

@@ -31,10 +31,10 @@
         watch: {
             TMP: {
                 handler(newVal, oldVal) {
-                    /*console.log(newVal);
-                    console.log(oldVal)*/
+                    /*console.log(newVal.request_count);*/
+                   /* console.log(oldVal)*/
                 },
-                immediate: true,
+                immediate: false,
                 deep: true
             }
 
