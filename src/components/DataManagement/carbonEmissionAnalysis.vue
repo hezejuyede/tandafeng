@@ -91,9 +91,11 @@
                 <div id="enterpriseBar" :style="{width: '100%', height: '100%'}"></div>
             </div>
         </div>
+        <shadinLayer></shadinLayer>
     </div>
 </template>
 <script type="text/ecmascript-6">
+    import shadinLayer from '../../common/shadinLayer'
     import Region from './carbonEmissionAnalysis/region'
     import Enterprise from './carbonEmissionAnalysis/enterprise'
     import Industry from './carbonEmissionAnalysis/industry'
@@ -151,7 +153,7 @@
         },
 
 
-        components: {Region,Enterprise,Industry},
+        components: {Region,Enterprise,Industry,shadinLayer},
 
         mounted() {
             this.doSearch();
@@ -162,25 +164,6 @@
         },
         methods: {
 
-            //打开全局遮罩层
-            openFullScreen() {
-                this.$loading({
-                    lock: true,
-                    text: 'Loading',
-                    spinner: 'el-icon-loading',
-                    background: 'rgba(0,0,0,0.4)'
-                });
-            },
-
-            //关闭全局遮罩层
-            closeFullScreen() {
-                const loading = this.$loading({
-                    lock: true,
-                    text: 'Loading',
-                    spinner: 'el-icon-loading',
-                });
-                loading.close();
-            },
 
             //重置
             doReset() {
@@ -191,7 +174,6 @@
 
             //查詢
             doSearch() {
-                this.openFullScreen();
                 let startTime, endTime;
                 if (this.examineTime === null) {
                     startTime = 0;
@@ -216,8 +198,6 @@
 
                 this.setEnterpriseList();
                 this.setEnterprisePie();
-
-                this.closeFullScreen();
             },
 
             //导出打印

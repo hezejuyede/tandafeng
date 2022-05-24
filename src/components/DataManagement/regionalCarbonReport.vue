@@ -97,12 +97,11 @@
         </div>
 
 
-        <Modal :msg="message"
-               :isHideModal="HideModal"></Modal>
+        <shadinLayer></shadinLayer>
     </div>
 </template>
 <script type="text/ecmascript-6">
-    import Modal from '../../common/modal'
+    import shadinLayer from '../../common/shadinLayer'
     import FileSaver from 'file-saver'
     import XLSX from 'xlsx'
     import {regionalCarbonReport} from "../../api/dataManagement";
@@ -148,7 +147,7 @@
                 return this.tableData
             }
         },
-        components: {Modal},
+        components: {shadinLayer},
         mounted() {
 
         },
@@ -194,26 +193,6 @@
 
 
 
-            //打开全局遮罩层
-            openFullScreen() {
-                this.$loading({
-                    lock: true,
-                    text: 'Loading',
-                    spinner: 'el-icon-loading',
-                    background: 'rgba(0,0,0,0.4)'
-                });
-            },
-
-            //关闭全局遮罩层
-            closeFullScreen() {
-                const loading = this.$loading({
-                    lock: true,
-                    text: 'Loading',
-                    spinner: 'el-icon-loading',
-                });
-                loading.close();
-            },
-
             //根据头部显示底部
             showDetailsBottom(index) {
                 this.detailsBottom = index + 1;
@@ -228,7 +207,6 @@
 
             //查询
             doSearch() {
-                this.openFullScreen();
                 let that = this;
                 let startTime, endTime;
                 if (this.examineTime === null) {
@@ -253,9 +231,6 @@
                     that.tableData = result.data.data.data;
                 }
                 getListData();
-                setTimeout(()=>{
-                    this.closeFullScreen();
-                },1000)
             },
 
 

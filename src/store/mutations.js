@@ -17,7 +17,10 @@ const mutations = {
     },
     [types.SET_USER_INFO](state, userInfo) {
         state.userInfo = userInfo
-    }
+    },
+    [types.SET_TMP_VALUE](state, item) {
+        state.TMP[item.name] = item.value;
+    },
 
 
 };

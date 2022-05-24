@@ -10,3 +10,6 @@ export const userInfo = state => state.userInfo;
 export const hasUserInfo = state => {
     return JSON.stringify(state.userInfo) !== '{}'
 };
+
+
+export const TMP = state => state.TMP;

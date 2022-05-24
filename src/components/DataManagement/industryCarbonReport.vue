@@ -87,12 +87,11 @@
         </div>
 
 
-        <Modal :msg="message"
-               :isHideModal="HideModal"></Modal>
+        <shadinLayer></shadinLayer>
     </div>
 </template>
 <script type="text/ecmascript-6">
-    import Modal from '../../common/modal'
+    import shadinLayer from '../../common/shadinLayer'
     import FileSaver from 'file-saver'
     import XLSX from 'xlsx'
     import {industryCarbonReport} from "../../api/dataManagement";
@@ -139,7 +138,7 @@
                 return this.tableData
             }
         },
-        components: {Modal},
+        components: {shadinLayer},
         mounted() {
 
         },
@@ -215,7 +214,7 @@
 
             //查询
             doSearch() {
-                this.openFullScreen();
+            /*    this.openFullScreen();*/
                 let that = this;
                 let startTime, endTime;
                 if (this.examineTime === null) {
@@ -241,9 +240,9 @@
                     that.tableData = result.data.data.data;
                 }
                 getListData();
-                setTimeout(()=>{
+             /*   setTimeout(()=>{
                     this.closeFullScreen();
-                },1000)
+                },1000)*/
 
             },
 
