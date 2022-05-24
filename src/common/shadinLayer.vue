@@ -30,8 +30,8 @@
         watch: {
             TMP: {
                 handler(newVal, oldVal) {
-                    console.log(newVal);
-                    console.log(oldVal)
+                    /*console.log(newVal);
+                    console.log(oldVal)*/
                 },
                 immediate: true,
                 deep: true
