@@ -69,9 +69,6 @@ export const regionalCarbonLine = data => {
 }
 
 
-
-
-
 /**
  * 行业碳报表
  */
@@ -82,7 +79,6 @@ export const industryCarbonReport = data => {
         data
     })
 }
-
 
 
 /**
