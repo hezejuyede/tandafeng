@@ -30,7 +30,7 @@
                 handler(newValue, oldValue) {
                     console.log(newValue);
                     if (newValue === false) {
-                        axios.get("/api/getMessageContent",{params:{"messageId":this.messageId}})
+                        axios.get("/api/getMessageContent", {params: {"messageId": this.messageId}})
                             .then((res) => {
                                 this.title = res.data[0].title;
                                 this.content = res.data[0].content;
@@ -63,6 +63,7 @@
         width: 100%;
         height: 100%;
         background-color: @color-background-d;
+
         .modal-message {
             width: 70%;
             height: 70%;
@@ -76,6 +77,7 @@
             font-size: 20px;
             line-height: 100px;
             background-color: @color-white;
+
             .messageTitle {
                 width: 100%;
                 height: 10%;
@@ -84,6 +86,7 @@
                 justify-content: center;
                 color: @color-bg-hei;
                 border-bottom: 1px solid @color-bg-hei;
+
                 .messageClose {
                     height: 50px;
                     width: 50px;
@@ -96,6 +99,7 @@
                     top: -25px;
                     cursor: pointer;
                     overflow: hidden;
+
                     .icon-guanbi1 {
                         font-size: 250%;
                         color: @color-bg-red;
@@ -103,6 +107,7 @@
 
                 }
             }
+
             .messageContent {
                 width: 100%;
                 height: 90%;

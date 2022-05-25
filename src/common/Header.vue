@@ -27,7 +27,7 @@
                 <!-- 用户头像 -->
                 <div class="user-avator fl">
                     <img src="static/img/img.jpg" v-if="!avatar">
-                    <img  v-if="avatar" :src="avatar">
+                    <img v-if="avatar" :src="avatar">
                 </div>
                 <!-- 用户名下拉菜单 -->
                 <el-dropdown class="user-name" trigger="click" @command="handleCommand">
@@ -84,7 +84,7 @@
         <el-dialog title="个人信息修改" :visible.sync="infoVisible" width="40%" :center="true" :close-on-click-modal="false"
                    :show-close="false">
             <div class="" style="height: 400px;overflow: auto">
-                <el-form ref="form" label-width="150px" :model="ruleForm"  :rules="rules">
+                <el-form ref="form" label-width="150px" :model="ruleForm" :rules="rules">
                     <el-form-item label="昵称" prop="nickname">
                         <el-input v-model="ruleForm.nickname" style="width: 80%" placeholder="昵称"></el-input>
                     </el-form-item>
@@ -130,6 +130,7 @@
     import upload from '../assets/js/upload'
     import url from '../assets/js/URL'
     import {mapActions} from 'vuex'
+
     export default {
         data() {
             return {
@@ -137,7 +138,7 @@
                 fullscreen: false,
                 name: '',
                 message: 2,
-                avatar:"",
+                avatar: "",
 
                 lookForPasswordVisible: false,
                 infoVisible: false,
@@ -174,9 +175,7 @@
                     head_path: ""
                 },
 
-                rules: {
-
-                },
+                rules: {},
 
 
                 uploadUrl: " " + upload + " ",
@@ -196,7 +195,6 @@
         methods: {
             //页面加载检查用户是否登陆，没有登陆就加载登陆页面
             getAdminState() {
-
 
 
             },
@@ -222,8 +220,6 @@
             },
 
 
-
-
             // 用户名下拉菜单选择事件
             handleCommand(command) {
                 if (command === 'loginOut') {
@@ -237,8 +233,7 @@
                     }).catch(() => {
 
                     });
-                }
-                else  if (command === 'changePassword'){
+                } else if (command === 'changePassword') {
                     this.lookForPasswordVisible = true;
                     this.ruleFormM = {
                         password1: "",
@@ -246,9 +241,7 @@
                         password3: ""
                     };
 
-                }
-
-                else  if (command === 'changeInfo'){
+                } else if (command === 'changeInfo') {
                     this.infoVisible = true;
                     let userInfo = JSON.parse(localStorage.getItem("userInfo"));
                     this.ruleForm = {
@@ -295,8 +288,6 @@
             },
 
 
-
-
             //显示修改密码
             changePassword() {
                 this.$refs.formM.validate((valid) => {
@@ -326,8 +317,7 @@
                                     this.closeFullScreen();
                                     console.log(err)
                                 });
-                        }
-                        else {
+                        } else {
                             this.$message.warning("两次新密码不一样");
                         }
                     } else {
@@ -338,8 +328,6 @@
 
 
             },
-
-
 
 
             //封装的修改信息
@@ -362,9 +350,9 @@
                                 this.avatar = res.data.headPath;
                                 let userInfo = JSON.parse(localStorage.getItem("userInfo"));
                                 userInfo.headPath = res.data.headPath;
-                                userInfo.nickName =res.data.nickName;
-                                userInfo.email =res.data.email;
-                                userInfo.sex =res.data.sex;
+                                userInfo.nickName = res.data.nickName;
+                                userInfo.email = res.data.email;
+                                userInfo.sex = res.data.sex;
                                 localStorage.setItem("userInfo", JSON.stringify(userInfo));
                             }
 
@@ -387,7 +375,6 @@
             },
 
 
-
             //取消上传
             qxUploadVisible() {
 
@@ -401,7 +388,7 @@
             //进行上传
             doUpload() {
                 let file = this.$refs.upload.uploadFiles;
-                if(file.length>0){
+                if (file.length > 0) {
                     this.$refs.form.validate((valid) => {
                         if (valid) {
                             this.$refs.upload.submit((data) => {
@@ -413,15 +400,9 @@
                             return false
                         }
                     });
+                } else {
+                    this.updateInfo("", this.ruleForm.nickname, this.ruleForm.sex, this.ruleForm.email)
                 }
-                else {
-                    this.updateInfo("",this.ruleForm.nickname,this.ruleForm.sex,this.ruleForm.email)
-                }
-
-
-
-
-
 
 
             },
@@ -445,15 +426,11 @@
             //图片上传成功后调用
             uploadSuccess(response, file, fileList) {
                 if (response.code === 200) {
-                    this.updateInfo(response.path,this.ruleForm.nickname,this.ruleForm.sex,this.ruleForm.email)
-                }
-                else {
+                    this.updateInfo(response.path, this.ruleForm.nickname, this.ruleForm.sex, this.ruleForm.email)
+                } else {
                     this.$message.warning("上传失败");
                 }
             },
-
-
-
 
 
             //上传失败
@@ -495,6 +472,7 @@
         height: 30px;
         width: 120px;
     }
+
     .header {
         position: relative;
         box-sizing: border-box;
@@ -503,24 +481,29 @@
         font-size: 22px;
         color: #fff;
         background-color: rgba(56, 65, 87, 1);
+
         .collapse-btn {
             float: left;
             padding: 0 10px;
             cursor: pointer;
             line-height: 70px;
         }
+
         .logo {
             float: left;
             width: 350px;
             line-height: 70px;
         }
+
         .header-right {
             float: right;
             padding-right: 50px;
+
             .header-user-con {
                 display: flex;
                 height: 70px;
                 align-items: center;
+
                 .btn-fullscreen {
                     transform: rotate(45deg);
                     margin-right: 5px;
@@ -577,7 +560,7 @@
 
     @media only screen and (max-width: 1024px) {
         .header {
-            width:1024px;
+            width: 1024px;
             color: #fff;
             background-color: rgba(56, 65, 87, 1);
         }
@@ -589,7 +572,7 @@
         display: none;
     }
 
-    .el-message-box .el-message-box__btns .el-button{
+    .el-message-box .el-message-box__btns .el-button {
         width: 100px;
         height: 40px;
     }

@@ -33,6 +33,7 @@
 
 <script>
     import bus from '../assets/js/bus';
+
     export default {
         data() {
             return {
@@ -85,9 +86,7 @@
                 this.collapse = msg;
             });
         },
-        methods: {
-
-        }
+        methods: {}
     }
 </script>
 
@@ -102,14 +101,17 @@
         line-height: 70px;
         bottom: 0;
         overflow-y: scroll;
+
         ul {
             height: 100%;
         }
+
         i {
 
             font-size: 150%;
             margin-right: 10px;
         }
+
         span {
             font-size: @font-size-medium-x;
         }

@@ -24,6 +24,7 @@
 
 <script>
     import bus from '../assets/js/bus';
+
     export default {
         data() {
             return {
@@ -40,25 +41,25 @@
                 const item = this.tagsList[index] ? this.tagsList[index] : this.tagsList[index - 1];
                 if (item) {
                     delItem.path === this.$route.fullPath && this.$router.push(item.path);
-                }else{
+                } else {
                     this.$router.push('/');
                 }
             },
             // 关闭全部标签
-            closeAll(){
+            closeAll() {
                 this.tagsList = [];
                 this.$router.push('/');
             },
             // 关闭其他标签
-            closeOther(){
+            closeOther() {
                 const curItem = this.tagsList.filter(item => {
                     return item.path === this.$route.fullPath;
                 })
                 this.tagsList = curItem;
             },
             // 设置标签
-            setTags(route){
-                var length =route.matched.length;
+            setTags(route) {
+                var length = route.matched.length;
                 const isExist = this.tagsList.some(item => {
                     return item.path === route.fullPath;
                 });
@@ -75,7 +76,7 @@
                 }
                 bus.$emit('tags', this.tagsList);
             },
-            handleTags(command){
+            handleTags(command) {
                 command === 'other' ? this.closeOther() : this.closeAll();
             }
         },
@@ -84,12 +85,12 @@
                 return this.tagsList.length > 0;
             }
         },
-        watch:{
-            $route(newValue, oldValue){
+        watch: {
+            $route(newValue, oldValue) {
                 this.setTags(newValue);
             }
         },
-        created(){
+        created() {
             this.setTags(this.$route);
         }
     }
