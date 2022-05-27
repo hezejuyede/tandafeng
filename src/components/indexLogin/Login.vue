@@ -19,11 +19,11 @@
                         <img src="../../assets/img/logo.png" alt="">
                     </div>
                     <div class="login-wrap-left-top-title fl" style="font-size: 22px">
-                        碳达峰碳中和统一指挥平台
+                        滨州市分布式光伏聚合运营平台
                     </div>
                 </div>
                 <div class="login-wrap-left-bottom" style="display: flex;justify-content: center">
-                    <img src="../../assets/img/loginImg.png" alt="" style="height: 300px;margin-bottom: 190px">
+                    <img src="../../assets/img/loginImg.png" alt="" style="height: 250px;margin-bottom: 190px">
                 </div>
             </div>
             <div class="login-wrap-right fl">
