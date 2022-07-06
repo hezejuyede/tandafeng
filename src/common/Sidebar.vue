@@ -70,7 +70,7 @@
                     {
                         icon: 'iconfont el-icon-s-platform',
                         index: '/LargeDataScreen',
-                        title: '数据大屏'
+                        title: '县域电力指数'
                     },
                 ]
             }

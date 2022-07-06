@@ -5,7 +5,7 @@
             <i class="el-icon-menu"></i>
         </div>
         <div class="logo">
-            <span>碳达峰碳中和统一指挥平台</span>
+            <span>山东公司乡村振兴电力指数应用推广</span>
         </div>
         <div class="header-right">
             <div class="header-user-con">
@@ -15,7 +15,7 @@
                         <i class="el-icon-rank"></i>
                     </el-tooltip>
                 </div>
-                <!-- 消息中心 -->
+<!--                &lt;!&ndash; 消息中心 &ndash;&gt;
                 <div class="btn-bell fl">
                     <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
                         <router-link to="/Message">
@@ -24,12 +24,12 @@
                     </el-tooltip>
                     <span class="btn-bell-badge" v-if="message"></span>
                 </div>
-                <!-- 用户头像 -->
+                &lt;!&ndash; 用户头像 &ndash;&gt;
                 <div class="user-avator fl">
                     <img src="static/img/img.jpg" v-if="!avatar">
                     <img v-if="avatar" :src="avatar">
                 </div>
-                <!-- 用户名下拉菜单 -->
+                &lt;!&ndash; 用户名下拉菜单 &ndash;&gt;
                 <el-dropdown class="user-name" trigger="click" @command="handleCommand">
                     <span class="el-dropdown-link">
                         {{username}} <i class="el-icon-caret-bottom"></i>
@@ -39,7 +39,7 @@
                         <el-dropdown-item divided command="changeInfo">修改信息</el-dropdown-item>
                         <el-dropdown-item divided command="loginOut">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
-                </el-dropdown>
+                </el-dropdown>-->
             </div>
         </div>
 
@@ -491,7 +491,7 @@
 
         .logo {
             float: left;
-            width: 350px;
+            width: 500px;
             line-height: 70px;
         }
 
