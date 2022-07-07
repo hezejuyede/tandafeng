@@ -47,23 +47,27 @@
                     {
                         icon: 'iconfont el-icon-s-marketing',
                         index: '2',
-                        title: '数据管理',
+                        title: '数据统计',
                         subs: [
                             {
-                                index: 'carbonEmissionAnalysis',
-                                title: '碳排放分析'
+                                index: 'RuralRevitalizationComprehensivePowerIndex',
+                                title: '乡村振兴综合电力指数'
                             },
                             {
-                                index: 'regionalCarbonReport',
-                                title: '区域碳报表'
+                                index: 'IndustrialProsperityPowerIndex',
+                                title: '产业兴旺电力指数统计'
                             },
                             {
-                                index: 'industryCarbonReport',
-                                title: '行业碳报表'
+                                index: 'LifeAffluenceElectricityIndexStatistics',
+                                title: '生活富裕电力指数统计'
                             },
                             {
-                                index: 'enterpriseOverDischargeWarningReport',
-                                title: '企业超排预警'
+                                index: 'AgriculturalDevelopmentElectricityIndex',
+                                title: '农业发展电力指数统计'
+                            },
+                            {
+                                index: 'HollowingRateStatistics',
+                                title: '空心化率统计'
                             },
                         ]
                     },

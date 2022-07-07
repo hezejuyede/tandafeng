@@ -6,15 +6,19 @@ import {getItem} from '../utils/storage'
 import Index from '../components/index/index'
 
 
-//数据管理
-import carbonEmissionAnalysis from '../components/DataManagement/carbonEmissionAnalysis'
-import regionalCarbonReport from '../components/DataManagement/regionalCarbonReport'
-import industryCarbonReport from '../components/DataManagement/industryCarbonReport'
-import enterpriseOverDischargeWarningReport from '../components/DataManagement/enterpriseOverDischargeWarningReport'
 
 
 //数据大屏
 import LargeDataScreen from '../components/LargeDataScreen/index'
+
+
+
+//数据统计
+import RuralRevitalizationComprehensivePowerIndex from '../components/DataStatistics/RuralRevitalizationComprehensivePowerIndex.vue'
+import IndustrialProsperityPowerIndex from '../components/DataStatistics/IndustrialProsperityPowerIndex.vue'
+import LifeAffluenceElectricityIndexStatistics from '../components/DataStatistics/LifeAffluenceElectricityIndexStatistics.vue'
+import AgriculturalDevelopmentElectricityIndex from '../components/DataStatistics/AgriculturalDevelopmentElectricityIndex.vue'
+import HollowingRateStatistics from '../components/DataStatistics/HollowingRateStatistics.vue'
 
 Vue.use(Router);
 
@@ -34,27 +38,35 @@ export default new Router({
                     component: Index,
                     meta: {title: '系统首页'}
                 },
+
                 {
-                    path: '/carbonEmissionAnalysis',
-                    component: carbonEmissionAnalysis,
-                    meta: {title: '碳排放分析'}
-                },
-                {
-                    path: '/regionalCarbonReport',
-                    component: regionalCarbonReport,
-                    meta: {title: '区域碳报表'}
-                },
-                {
-                    path: '/industryCarbonReport',
-                    component: industryCarbonReport,
-                    meta: {title: '行业碳报表'}
-                },
-                {
-                    path: '/enterpriseOverDischargeWarningReport',
-                    component: enterpriseOverDischargeWarningReport,
-                    meta: {title: '企业超排预警'}
+                    path: '/RuralRevitalizationComprehensivePowerIndex',
+                    component: RuralRevitalizationComprehensivePowerIndex,
+                    meta: {title: '乡村振兴综合电力指数统计'}
                 },
 
+                {
+                    path: '/IndustrialProsperityPowerIndex',
+                    component: IndustrialProsperityPowerIndex,
+                    meta: {title: '产业兴旺电力指数统计'}
+                },
+
+                {
+                    path: '/LifeAffluenceElectricityIndexStatistics',
+                    component: LifeAffluenceElectricityIndexStatistics,
+                    meta: {title: '生活富裕电力指数统计'}
+                },
+
+                {
+                    path: '/AgriculturalDevelopmentElectricityIndex',
+                    component: AgriculturalDevelopmentElectricityIndex,
+                    meta: {title: '农业发展电力指数统计'}
+                },
+                {
+                    path: '/HollowingRateStatistics',
+                    component: HollowingRateStatistics,
+                    meta: {title: '空心化率统计'}
+                },
                 {
                     path: '/404',
                     component: resolve => require(['../components/errPage/404.vue'], resolve),
