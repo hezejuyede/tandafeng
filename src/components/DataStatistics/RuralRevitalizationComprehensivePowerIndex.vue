@@ -3,18 +3,12 @@
         <div class="crumbs">
             <div class="crumbsLeft fl">
                 <el-breadcrumb separator="/">
-<!--                    <el-breadcrumb-item>数据统计</el-breadcrumb-item>-->
+                    <el-breadcrumb-item>乡村振兴统计报表</el-breadcrumb-item>
                     <el-breadcrumb-item>乡村振兴综合电力指数统计</el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
         </div>
         <div class="container">
-            <div class="containerTitle" id="containerTitle">
-                <el-radio-group v-model="checkRadio">
-                    <el-radio-button label="指数数据" size="medium"></el-radio-button>
-                    <el-radio-button label="全社会用电量数据"  size="medium"></el-radio-button>
-                </el-radio-group>
-            </div>
             <div class="containerBottom">
                 <div class="containerLeft fl"    ref="containerLeft">
                     <div class="containerLeftDiv">
@@ -324,10 +318,11 @@
             line-height: 50px;
             background-color: @color-white;
 
+
             .crumbsLeft {
                 width: 500px;
                 height: 30px;
-                padding-top: 17px;
+                padding-top: 20px;
                 padding-left: 20px;
 
             }
@@ -343,16 +338,13 @@
         }
 
         .container {
-            .containerTitle {
-                height: 50px;
-                background-color: #EFF3F3;
-                display: flex;
-                align-items: center;
-                justify-content:flex-start;
-                padding-left: 10px;
-            }
+            padding-top: 10px;
+            background-color: #EFF3F3;
+
 
             .containerBottom {
+
+
                 .containerLeft {
                     width: 20%;
                     display: flex;
@@ -420,19 +412,5 @@
             }
         }
 
-        /deep/ .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-            background-color: #008972;
-        }
-
-        /deep/ .el-breadcrumb__separator {
-            font-size: 20px;
-            color: #000000;
-        }
-
-        /deep/ .el-breadcrumb__inner {
-            font-size: 20px;
-            font-weight: bold;
-            color: #000000;
-        }
     }
 </style>

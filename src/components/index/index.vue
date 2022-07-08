@@ -1,246 +1,270 @@
 <template>
-    <div class="template">
-        <div class="crumbs">
-            <i class="el-icon-s-home"></i>
-            <span>系统首页</span>
-        </div>
-        <div class="templateDiv">
-
-            <div class="templateBottom">
-                <div class="templateBottomL fl" ref="templateBottomL">
-                    <div id="dataBar1" :style="{width: '100%', height: lHeight}"></div>
-                </div>
-                <div class="templateBottomR fl" ref="templateBottomR">
-                    <div id="dataBar2" :style="{width: '100%', height: rHeight}"></div>
-                </div>
+    <div class="templateDiv">
+        <div class="crumbsDiv">
+            <div class="crumbsLeft fl">
+                <el-breadcrumb separator="/">
+                    <el-breadcrumb-item>全省县域乡村振兴全景展示</el-breadcrumb-item>
+                </el-breadcrumb>
             </div>
         </div>
+
+        <div class="templateDivLeft">
+            <div id="chart_map" style="width:100%;height:650px;"></div>
+        </div>
+        <div class="templateDivRight">
+
+        </div>
+
+
     </div>
 </template>
 <script type="text/ecmascript-6">
-    import {mapGetters} from 'vuex'
+import '../../utils/shandong'
 
-    export default {
-        name: 'index',
-        data() {
-            return {
-                message: '',
-                examineTime:"",
-                HideModal: true,
-                iconData: [
-                    {
 
-                        "img": require("../../assets/img/home/dshdd.png"),
-                        "text": "待审核运单/个",
-                        "count": "0"
+export default {
+    name: 'index',
+    data() {
+        return {}
+    },
+    computed: {},
+    components: {},
+    mounted() {
+        this.doSearch();
+    },
+    created() {
+
+    },
+    methods: {
+
+        //页面初始
+        doSearch() {
+            this.shandongMap();
+        },
+
+
+        //山东碳排放地图
+        shandongMap() {
+            var myChart = this.$echarts.init(document.getElementById('chart_map'));
+
+            function showProvince() {
+                var geoCoordMap = {
+                    '下河乡': [118.278110, 37.822820],
+                    '郭集': [118.035729, 37.398876],
+                    '辛店镇': [117.589722, 37.363453],
+                    '魏桥镇': [117.498970, 37.028880]
+                    , '马山子镇': [117.876911, 38.026408],
+                    '商店镇': [117.689804, 37.558530],
+                    '湖滨镇': [118.199060, 37.097540]
+                };
+                var data = [
+                    {
+                        name: '下河乡',
+                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
                     },
                     {
-                        "img": require("../../assets/img/home/dshqy.png"),
-                        "text": "待审核企业/个",
-                        "count": "0"
+                        name: '郭集',
+                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
                     },
                     {
-                        "img": require("../../assets/img/home/ylgs.png"),
-                        "text": "运力总数/个",
-                        "count": "0"
+                        name: '辛店镇',
+                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
                     },
                     {
-                        "img": require("../../assets/img/home/hzgs.png"),
-                        "text": "货主总数/个",
-                        "count": "0"
+                        name: '魏桥镇',
+                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
                     },
                     {
-                        "img": require("../../assets/img/home/zptxf.png"),
-                        "text": "平台总消费额/元",
-                        "count": "0"
+                        name: '马山子镇',
+                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
                     },
                     {
-                        "img": require("../../assets/img/home/zptps.png"),
-                        "text": "平台总开票数/个",
-                        "count": "0"
+                        name: '商店镇',
+                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
                     },
-                ],
-                lHeight:"",
-                rHeight:"",
+                    {
+                        name: '湖滨镇',
+                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
+                    }
+                ];
+                var max = 480,
+                    min = 9;
+                var maxSize4Pin = 50,
+                    minSize4Pin = 20;
+                var convertData = function (data) {
+                    var res = [];
+                    for (var i = 0; i < data.length; i++) {
+                        var geoCoord = geoCoordMap[data[i].name];
+
+                        if (geoCoord) {
+                            res.push({
+                                name: data[i].name,
+                                value: geoCoord.concat(data[i].value),
+                            });
+                        }
+                    }
+                    return res;
+                };
+
+                myChart.setOption({
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: function loadData(result) {
+                            return result.name + '<br />' + result.value[3];
+                        }
+                    },
+                    geo: {
+                        zoom: 1.2,
+                        show: true,
+                        map: '山东',
+                        mapType: '山东',
+                        label: {
+                            normal: {
+                                show: true,
+                                textStyle: {color: "#ffffff"}
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+                        },
+                        roam: true,
+                        itemStyle: {
+                            normal: {
+                                borderColor: 'rgba(147, 235, 248, 1)',
+                                borderWidth: 2,
+                                areaColor: {
+                                    type: 'radial',
+                                    x: 0.5,
+                                    y: 0.5,
+                                    r: 0.8,
+                                    colorStops: [{
+                                        offset: 0,
+                                        color: 'rgba(175,238,238, 0)' // 0% 处的颜色
+                                    }, {
+                                        offset: 1,
+                                        color: 'rgba(47,79,79, .2)' // 100% 处的颜色
+                                    }],
+                                    globalCoord: false // 缺省为 false
+                                },
+                                shadowColor: 'rgba(128, 217, 248, 1)',
+                                shadowOffsetX: -2,
+                                shadowOffsetY: 2,
+                                shadowBlur: 10
+                            },
+                            emphasis: {
+                                areaColor: '#389BB7',
+                                borderWidth: 0
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name: '电商进农村示范县',
+                            type: 'scatter',
+                            coordinateSystem: 'geo',
+                            symbol: 'pin',
+                            symbolSize: function (val) {
+                                var a = (maxSize4Pin - minSize4Pin) / (max - min);
+                                var b = minSize4Pin - a * min;
+                                b = maxSize4Pin - a * max;
+                                return a * val[2] + b;
+                            },
+                            label: {
+                                normal: {
+                                    formatter: '{b}',
+                                    show: true,
+                                    textStyle: {
+                                        color: '#fff',
+                                        fontSize: 10,
+                                    }
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'red', //标志颜色
+                                }
+                            },
+                            zlevel: 6,
+                            data: convertData(data),
+                        },
+                        {
+                            type: 'effectScatter',
+                            coordinateSystem: 'geo',
+                            data: convertData(data.sort(function (a, b) {
+                                return b.value - a.value;
+                            }).slice(0, 47)),
+                            symbolSize: function (val) {
+                                return val[2] / 10;
+                            },
+                            showEffectOn: 'render',
+                            rippleEffect: {
+                                brushType: 'stroke'
+                            },
+                            hoverAnimation: true,
+                            itemStyle: {
+                                normal: {
+                                    color: '#05C3F9',
+                                    shadowBlur: 10,
+                                    shadowColor: '#05C3F9'
+                                }
+                            },
+                            zlevel: 1
+                        },
+
+                    ]
+                });
             }
+
+            showProvince();
+            window.addEventListener("resize", function () {
+                myChart.resize();
+            });
         },
-        computed: {
-            ...mapGetters([
-                'token',
-            ])
-        },
-        components: {
-
-        },
-        mounted() {
-            this.getToken()
-
-        },
-        created() {
-
-
-        },
-        methods: {
-
-            getToken(){
-                console.log(this.token)
-
-            },
-
-
-            //动态设置高度
-            setHeight() {
-                let l = this.$refs.templateBottomL.offsetHeight;
-                this.lHeight = 0.95 * l + "px";
-                this.rHeight = 0.95 * l + "px";
-            }
-        }
     }
+
+}
+
+
 </script>
 <style scoped lang="less" rel="stylesheet/less">
-    @import "../../assets/less/base";
-
-    .template {
+.templateDiv{
+    width: 100%;
+    height: 100%;
+    .crumbsDiv {
         width: 100%;
-        height: 100%;
-        background-color: @color-F0;
-
-        .crumbs {
-            height: 35px;
-            display: flex;
-            align-items: center;
+        height: 50px;
+        line-height: 50px;
+        background-color: #fff;
+        .crumbsLeft {
+            width: 500px;
+            height: 30px;
+            padding-top: 17px;
             padding-left: 20px;
-            margin-bottom: 20px;
-            background-color: @color-white;
-
-            .el-icon-s-home {
-                font-size: 180%;
-                margin-right: 5px;
-                color: @color-bg-lan;
-            }
         }
 
-        .templateDiv {
-            width: 100%;
-            height: 100%;
-            background-color: @color-F0;
-
-            .templateTop {
-                width: 96%;
-                margin: 0 auto;
-                height: 12%;
-
-                .IconTemplate {
-                    width: 15.5%;
-                    height: 100%;
-                    background-color: #2d8cf0;
-                    margin-right: 1.5%;
-                    display: flex;
-                    border-radius: 5px;
-
-                    .IconTemplateDiv {
-                        height: 100%;
-                        width: 100%;
-                        border-radius: 5px;
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-
-                        .textStyle {
-                            font-size: @font-size-small;
-                            color: @color-white;
-                            margin-top: 10px;
-                            margin-right: 10px;
-                        }
-
-                        .countStyle {
-                            font-size: @font-size-large-x;
-                            color: @color-white;
-                            margin-right: 10px;
-                        }
-
-
-                    }
-
-                }
-
-                .IconTemplate:last-child {
-                    width: 15%;
-                    height: 100%;
-                    background-color: #2d8cf0;
-                    margin-right: 0;
-                    display: flex;
-
-                    .IconTemplateDiv {
-                        height: 100%;
-                        width: 100%;
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-
-                        .textStyle {
-                            font-size: @font-size-small;
-                            color: @color-white;
-                            margin-top: 10px;
-                            margin-right: 10px;
-                        }
-
-                        .countStyle {
-                            font-size: @font-size-large-x;
-                            color: @color-white;
-                            margin-right: 10px;
-                        }
-
-
-                    }
-
-                }
-
-            }
-
-            .templateBottom {
-                height: 72%;
-                width: 96%;
-                margin: 20px auto;
-                border-radius: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: @color-white;
-                .templateBottomL{
-                    width: 50%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                }
-
-                .templateBottomR{
-                    width: 50%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
+        .crumbsRight {
+            margin-right: 50px;
+            .el-button {
+                width: 100px;
+                height: 35px;
             }
         }
-
+        /deep/ .el-breadcrumb__inner {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+        }
     }
-
-    @media only screen and (max-width: 1400px) {
-        .template {
-            width: 1400px;
-        }
-
+    .templateDivLeft{
+        width: 75%;
+        height: 100%;
+        background-color: #4b8df8;
+        padding-left: 80px;
     }
+}
 
 
 </style>

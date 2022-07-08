@@ -3,18 +3,12 @@
         <div class="crumbs">
             <div class="crumbsLeft fl">
                 <el-breadcrumb separator="/">
-                    <!--                    <el-breadcrumb-item>数据统计</el-breadcrumb-item>-->
+                    <el-breadcrumb-item>乡村振兴统计报表</el-breadcrumb-item>
                     <el-breadcrumb-item>生活富裕电力指数统计</el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
         </div>
         <div class="container">
-            <div class="containerTitle" id="containerTitle">
-                <el-radio-group v-model="checkRadio">
-                    <el-radio-button label="指数数据" size="medium"></el-radio-button>
-                    <el-radio-button label="全社会用电量数据"  size="medium"></el-radio-button>
-                </el-radio-group>
-            </div>
             <div class="containerBottom">
                 <div class="containerLeft fl"    ref="containerLeft">
                     <div class="containerLeftDiv">
@@ -46,66 +40,52 @@
                             </el-table-column>
 
                             <el-table-column
-                                prop="enterpriseName"
                                 align="center"
-                                label="市别">
-                                <template slot-scope="scope">
-                                    <el-popover placement="top-start" title="企业名称" width="350" trigger="hover"
-                                                :content="scope.row.enterpriseName">
-                                        <div slot="reference"
-                                             style="width: 100%;height: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                                            {{scope.row.enterpriseName}}
-                                        </div>
-                                    </el-popover>
-                                </template>
-                            </el-table-column>
-                            <el-table-column
-                                align="center"
-                                label="县别">
+                                label="类别">
                             </el-table-column>
                             <el-table-column
                                 prop="totalCarbonEmission"
-                                label="2018"
+                                label="2018年"
                                 align="center">
                                 <el-table-column
                                     prop="totalCarbonEmission"
-                                    label="综合指数"
+                                    label="用电量(万千瓦时)"
                                     align="center">
                                 </el-table-column>
                                 <el-table-column
                                     prop="excessDisplacement"
                                     align="center"
-                                    label="排名">
+                                    label="用电量比量(%)">
                                 </el-table-column>
                             </el-table-column>
                             <el-table-column
                                 prop="totalCarbonEmission"
-                                label="2019"
+                                label="2019年"
                                 align="center">
                                 <el-table-column
                                     prop="totalCarbonEmission"
-                                    label="综合指数"
+                                    label="用电量(万千瓦时)"
                                     align="center">
                                 </el-table-column>
                                 <el-table-column
                                     prop="excessDisplacement"
                                     align="center"
-                                    label="排名">
+                                    label="用电量比量(%)">
                                 </el-table-column>
                             </el-table-column>
                             <el-table-column
                                 prop="totalCarbonEmission"
-                                label="2020"
+                                label="2020年"
                                 align="center">
                                 <el-table-column
                                     prop="totalCarbonEmission"
-                                    label="综合指数"
+                                    label="用电量(万千瓦时)"
                                     align="center">
                                 </el-table-column>
                                 <el-table-column
                                     prop="excessDisplacement"
                                     align="center"
-                                    label="排名">
+                                    label="用电量比量(%)">
                                 </el-table-column>
                             </el-table-column>
 
@@ -324,10 +304,11 @@ export default {
         line-height: 50px;
         background-color: @color-white;
 
+
         .crumbsLeft {
             width: 500px;
             height: 30px;
-            padding-top: 17px;
+            padding-top: 20px;
             padding-left: 20px;
 
         }
@@ -343,16 +324,13 @@ export default {
     }
 
     .container {
-        .containerTitle {
-            height: 50px;
-            background-color: #EFF3F3;
-            display: flex;
-            align-items: center;
-            justify-content:flex-start;
-            padding-left: 10px;
-        }
+        padding-top: 10px;
+        background-color: #EFF3F3;
+
 
         .containerBottom {
+
+
             .containerLeft {
                 width: 20%;
                 display: flex;
@@ -420,19 +398,5 @@ export default {
         }
     }
 
-    /deep/ .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-        background-color: #008972;
-    }
-
-    /deep/ .el-breadcrumb__separator {
-        font-size: 20px;
-        color: #000000;
-    }
-
-    /deep/ .el-breadcrumb__inner {
-        font-size: 20px;
-        font-weight: bold;
-        color: #000000;
-    }
 }
 </style>

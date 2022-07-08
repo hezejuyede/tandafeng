@@ -47,7 +47,7 @@
                     {
                         icon: 'iconfont el-icon-s-marketing',
                         index: '2',
-                        title: '数据统计',
+                        title: '乡村振兴统计报表',
                         subs: [
                             {
                                 index: 'RuralRevitalizationComprehensivePowerIndex',

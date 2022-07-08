@@ -429,6 +429,7 @@
                     }
                     .login-wrap-left-bottom {
                         height: 450px;
+
                     }
 
                 }
