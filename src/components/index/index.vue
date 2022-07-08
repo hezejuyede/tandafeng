@@ -8,7 +8,7 @@
                 <div class="LeftTextSelect clearfix">
                     <div class="fl" style="margin-right: 10px">
                         <el-select
-                            style="width: 120px"
+                            style="width: 130px"
                             v-model="year"
                             clearable
                             filterable
@@ -25,7 +25,7 @@
                     </div>
                     <div class="fl">
                         <el-select
-                            style="width: 120px"
+                            style="width: 130px"
                             v-model="type"
                             clearable
                             filterable
@@ -169,14 +169,12 @@ export default {
                 {"name": "2018年", "id": "1"},
                 {"name": "2019年", "id": "2"},
                 {"name": "2020年", "id": "4"},
-                {"name": "全部", "id": ""}
             ],
             type:"",
             typeOptions:[
                 {"name": "示范引领类", "id": "1"},
                 {"name": "整体推进类", "id": "2"},
                 {"name": "巩固提升类", "id": "4"},
-                {"name": "全部", "id": ""}
             ],
         }
     },
@@ -448,7 +446,7 @@ export default {
         padding-left: 50px;
         position: relative;
         .LeftText{
-            width: 270px;
+            width: 300px;
             height: 200px;
             position: absolute;
             top: 0;
@@ -465,6 +463,8 @@ export default {
             .LeftTextSelect{
                 margin-top: 10px;
                 padding-left: 20px;
+                position: relative;
+                z-index: 9999999999999999999;
             }
             .LeftTextExplain{
                 height: 80px;
@@ -477,7 +477,7 @@ export default {
                         width: 15px;
                         height: 15px;
                         margin-top: 2.5px;
-                        border-radius:5px ;
+                        border-radius:2px ;
                         margin-right: 5px;
                     }
                     .LeftTextExplainR{
