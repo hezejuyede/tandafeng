@@ -1,18 +1,114 @@
 <template>
     <div class="templateDiv">
-        <div class="crumbsDiv">
-            <div class="crumbsLeft fl">
-                <el-breadcrumb separator="/">
-                    <el-breadcrumb-item>全省县域乡村振兴全景展示</el-breadcrumb-item>
-                </el-breadcrumb>
-            </div>
-        </div>
+        <div class="templateDivLeft fl">
+            <div class="LeftText clearfix">
+                <div class="LeftTextTitle">
+                    县域乡村振兴全景展示
+                </div>
+                <div class="LeftTextSelect clearfix">
+                    <div class="fl" style="margin-right: 10px">
+                        <el-select
+                            style="width: 120px"
+                            v-model="year"
+                            clearable
+                            filterable
+                            allow-create
+                            default-first-option
+                            placeholder="年份">
+                            <el-option
+                                v-for="item in yearOptions"
+                                :key="item.id"
+                                :label="item.name"
+                                :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </div>
+                    <div class="fl">
+                        <el-select
+                            style="width: 120px"
+                            v-model="type"
+                            clearable
+                            filterable
+                            allow-create
+                            default-first-option
+                            placeholder="选择县域类型">
+                            <el-option
+                                v-for="item in typeOptions"
+                                :key="item.id"
+                                :label="item.name"
+                                :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </div>
+                </div>
+                <div class="LeftTextExplain clearfix">
+                    <div class="LeftTextExplainDiv ">
+                        <div class="LeftTextExplainL fl" style="background-color: #17A15E"></div>
+                        <div class="LeftTextExplainR fl">示范引领类</div>
+                    </div>
+                    <div class="LeftTextExplainDiv">
+                        <div class="LeftTextExplainL fl" style="background-color: #1790A0"></div>
+                        <div class="LeftTextExplainR fl">整体推进类</div>
+                    </div>
+                    <div class="LeftTextExplainDiv">
+                        <div class="LeftTextExplainL fl" style="background-color: #116295"></div>
+                        <div class="LeftTextExplainR fl">巩固提升类</div>
+                    </div>
 
-        <div class="templateDivLeft">
+
+                </div>
+            </div>
             <div id="chart_map" style="width:100%;height:650px;"></div>
         </div>
-        <div class="templateDivRight">
+        <div class="templateDivRight fl">
+            <div class="rightBar">
+                <div class="rightBarTitle clearfix">乡村振兴电力指数趋势</div>
+                <div id="chart_2" class="chart t_btn9" style="width:100%;height: 250px;"></div>
+            </div>
+            <div class="rightList">
+                <div class="rightListTitle clearfix">电力指数TOP5</div>
+                <div class="rightListRadio">
+                    <el-radio-group v-model="radio1">
+                        <el-radio-button label="示范引领类"></el-radio-button>
+                        <el-radio-button label="整体推进类"></el-radio-button>
+                        <el-radio-button label="巩固提升类"></el-radio-button>
+                    </el-radio-group>
+                </div>
+                <div class="">
+                    <el-table class="tb-edit"
+                              :data="tables"
+                              :header-cell-style="{background:'#FFF',color:'#959595',height:'60px',borderColor:'#FFF',fontSize:'12px',fontWeight: 'bold'}"
+                              :cell-style="{fontSize:'12px',fontWeight: 'norma',background:'#FFF'}"
+                              :height="250"
+                              id="rebateSetTable"
+                              ref="moviesTable"
+                              highlight-current-row
+                              style="width: 90%;margin: auto">
+                        <el-table-column
+                            label="排名"
+                            align="center"
+                            width="60">
+                            <template slot-scope="scope">
+                                <span style="color: #4C897E;font-size: 14px">{{"0"+ (scope.$index+1)}}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                            prop="county"
+                            align="center"
+                            label="县域">
+                        </el-table-column>
+                        <el-table-column
+                            prop="enterpriseName"
+                            align="center"
+                            label="电力指数">
+                            <template slot-scope="scope">
+                                <span style="color: #F08A63;font-size: 16px">{{scope.row.enterpriseName}}</span>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </div>
 
+            </div>
         </div>
 
 
@@ -20,12 +116,69 @@
 </template>
 <script type="text/ecmascript-6">
 import '../../utils/shandong'
+import {
+    carbonEmissionPrediction,
+    carbonEmissionWarning,
+    electricityCarbonEmissionsPeak,
+    peakCarbonEmission,
+    shandongMap
+} from "../../api/largeDataScreen";
 
 
 export default {
     name: 'index',
     data() {
-        return {}
+        return {
+            regionBar:[{"type":"bar","color":"#008972","barWidth" : 10,},{"type":"bar","color":"#F2AA49","barWidth" : 10},{"type":"bar","color":"#909399","barWidth" : 10}],
+            regionData:[
+                [
+                    "类型",
+                    "示范引领类",
+                    "整体推进类",
+                    "巩固提升类"
+                ],
+                [
+                    "2018",
+                    594.12,
+                    256.47,
+                    175.39
+                ],
+                [
+                    "2019",
+                    594.12,
+                    256.47,
+                    175.39
+                ],
+                [
+                    "2020",
+                    594.12,
+                    256.47,
+                    175.39
+                ]
+            ],
+            radio1:"示范引领类",
+            tables:[
+                {"enterpriseName":"99.9","county":"邹城市"},
+                {"enterpriseName":"98.6","county":"肥城县"},
+                {"enterpriseName":"97.5","county":"招远市"},
+                {"enterpriseName":"97.1","county":"商河县"},
+                {"enterpriseName":"96.4","county":"博兴县"}
+            ],
+            year:"",
+            yearOptions:[
+                {"name": "2018年", "id": "1"},
+                {"name": "2019年", "id": "2"},
+                {"name": "2020年", "id": "4"},
+                {"name": "全部", "id": ""}
+            ],
+            type:"",
+            typeOptions:[
+                {"name": "示范引领类", "id": "1"},
+                {"name": "整体推进类", "id": "2"},
+                {"name": "巩固提升类", "id": "4"},
+                {"name": "全部", "id": ""}
+            ],
+        }
     },
     computed: {},
     components: {},
@@ -40,6 +193,7 @@ export default {
         //页面初始
         doSearch() {
             this.shandongMap();
+            this.carbonEmissionWarning();
         },
 
 
@@ -48,15 +202,7 @@ export default {
             var myChart = this.$echarts.init(document.getElementById('chart_map'));
 
             function showProvince() {
-                var geoCoordMap = {
-                    '下河乡': [118.278110, 37.822820],
-                    '郭集': [118.035729, 37.398876],
-                    '辛店镇': [117.589722, 37.363453],
-                    '魏桥镇': [117.498970, 37.028880]
-                    , '马山子镇': [117.876911, 38.026408],
-                    '商店镇': [117.689804, 37.558530],
-                    '湖滨镇': [118.199060, 37.097540]
-                };
+                var geoCoordMap = {};
                 var data = [
                     {
                         name: '下河乡',
@@ -121,7 +267,7 @@ export default {
                         label: {
                             normal: {
                                 show: true,
-                                textStyle: {color: "#ffffff"}
+                                textStyle: {color: "#ffffff",fontSize: 8,}
                             },
                             emphasis: {
                                 show: true,
@@ -135,24 +281,7 @@ export default {
                             normal: {
                                 borderColor: 'rgba(147, 235, 248, 1)',
                                 borderWidth: 2,
-                                areaColor: {
-                                    type: 'radial',
-                                    x: 0.5,
-                                    y: 0.5,
-                                    r: 0.8,
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: 'rgba(175,238,238, 0)' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: 'rgba(47,79,79, .2)' // 100% 处的颜色
-                                    }],
-                                    globalCoord: false // 缺省为 false
-                                },
-                                shadowColor: 'rgba(128, 217, 248, 1)',
-                                shadowOffsetX: -2,
-                                shadowOffsetY: 2,
-                                shadowBlur: 10
+                                areaColor: "#17A15E", //区域颜色
                             },
                             emphasis: {
                                 areaColor: '#389BB7',
@@ -223,6 +352,84 @@ export default {
                 myChart.resize();
             });
         },
+
+        //不同区域碳排放预警
+        carbonEmissionWarning() {
+            // 基于准备好的dom，初始化echarts实例
+            let myChart = this.$echarts.init(document.getElementById('chart_2'));
+            // 绘制图表
+            myChart.setOption(
+                {
+                    legend: {
+                        textStyle: {
+                            fontSize: 10,//字体大小
+                            color: '#B9BABA'//字体颜色
+                        },
+                    },
+                    tooltip: {
+                        trigger: 'item',
+                        textStyle: {
+                            color: '#B9BABA'
+                        },
+                    },
+                    grid: {},
+                    dataset: {
+                        source: this.regionData
+                    },
+                    xAxis: {
+
+                        type: 'category',
+                        axisLine: {
+                            lineStyle: {
+                                color: "#3A4467"
+                            }
+                        },
+                        offset: 10,
+                        axisTick: { //x轴刻度线
+                            show: false,
+                        },
+                        splitLine: {show: false},
+                        axisLabel: {
+                            textStyle: {
+                                color: "#B9BABA"
+                            }
+                        }
+                    },
+                    yAxis: {
+                        axisLine: {
+                            show: true,
+
+                        },
+                        axisTick: { //y轴刻度线
+                            show: false,
+                            axisLine: { //y轴
+                                show: false
+                            },
+                            textStyle: {
+                                color: "#fff",
+                                margin: 15
+                            },
+
+
+                        },
+                        splitLine: {
+                            show: true,
+                            lineStyle: {
+                                color: "#F0F1F1",
+                                width: 1,
+                                type: "solid"
+                            },
+                        },
+
+                        axisLabel: {
+                            textStyle: {
+                                color: "#B9BABA"
+                            }
+                        }
+                    },
+                    series: this.regionBar
+                }, true);
+        },
     }
 
 }
@@ -230,39 +437,108 @@ export default {
 
 </script>
 <style scoped lang="less" rel="stylesheet/less">
-.templateDiv{
+.templateDiv {
     width: 100%;
     height: 100%;
-    .crumbsDiv {
-        width: 100%;
-        height: 50px;
-        line-height: 50px;
-        background-color: #fff;
-        .crumbsLeft {
-            width: 500px;
-            height: 30px;
-            padding-top: 17px;
-            padding-left: 20px;
-        }
 
-        .crumbsRight {
-            margin-right: 50px;
-            .el-button {
-                width: 100px;
-                height: 35px;
-            }
-        }
-        /deep/ .el-breadcrumb__inner {
-            font-size: 20px;
-            font-weight: bold;
-            color: #000000;
-        }
-    }
-    .templateDivLeft{
+    .templateDivLeft {
         width: 75%;
         height: 100%;
-        background-color: #4b8df8;
-        padding-left: 80px;
+        background-color: #EDF3F2;
+        padding-left: 50px;
+        position: relative;
+        .LeftText{
+            width: 270px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999999;
+            .LeftTextTitle{
+                height: 40px;
+                line-height: 40px;
+                font-size: 18px;
+                padding-left: 20px;
+                color: #287165;
+                font-weight: bold;
+            }
+            .LeftTextSelect{
+                margin-top: 10px;
+                padding-left: 20px;
+            }
+            .LeftTextExplain{
+                height: 80px;
+                margin-top: 20px;
+                .LeftTextExplainDiv{
+                    height: 20px;
+                    padding-left: 20px;
+                    margin-top: 5px;
+                    .LeftTextExplainL{
+                        width: 15px;
+                        height: 15px;
+                        margin-top: 2.5px;
+                        border-radius:5px ;
+                        margin-right: 5px;
+                    }
+                    .LeftTextExplainR{
+                        color: #1790A0;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .templateDivRight {
+        width: 25%;
+        height: 100%;
+
+        .rightBar {
+            height: 47%;
+            background-color: #FFF;
+            padding-top: 10px;
+            margin-bottom: 3%;
+
+            .rightBarTitle {
+                height: 20px;
+                color: #63978F;
+                font-size: 16px;
+                margin-top: 5px;
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+
+        }
+
+        .rightList {
+            height: 48%;
+            background-color: #FFF;
+            .rightListTitle {
+                height: 40px;
+                color: #63978F;
+                font-size: 16px;
+                margin-top: 5px;
+                margin-left: 20px;
+                line-height: 40px;
+            }
+            .rightListRadio{
+                width: 100%;
+                padding-left: 20px;
+                height: 40px;
+
+                /deep/ .el-radio-button__orig-radio:checked+.el-radio-button__inner {
+                    background-color: #008972;
+                }
+            }
+        }
+    }
+    .el-table {
+        /deep/ th {
+            padding: 0 ;
+        }
+        /deep/ td {
+            padding: 2px ;
+        }
     }
 }
 
