@@ -41,22 +41,6 @@
                         </el-select>
                     </div>
                 </div>
-                <div class="LeftTextExplain clearfix">
-                    <div class="LeftTextExplainDiv ">
-                        <div class="LeftTextExplainL fl" style="background-color: #17A15E"></div>
-                        <div class="LeftTextExplainR fl">示范引领类</div>
-                    </div>
-                    <div class="LeftTextExplainDiv">
-                        <div class="LeftTextExplainL fl" style="background-color: #1790A0"></div>
-                        <div class="LeftTextExplainR fl">整体推进类</div>
-                    </div>
-                    <div class="LeftTextExplainDiv">
-                        <div class="LeftTextExplainL fl" style="background-color: #116295"></div>
-                        <div class="LeftTextExplainR fl">巩固提升类</div>
-                    </div>
-
-
-                </div>
             </div>
             <div id="chart_map" style="width:100%;height:650px;"></div>
         </div>
@@ -138,12 +122,6 @@ export default {
                     "巩固提升类"
                 ],
                 [
-                    "2018",
-                    594.12,
-                    256.47,
-                    175.39
-                ],
-                [
                     "2019",
                     594.12,
                     256.47,
@@ -151,6 +129,12 @@ export default {
                 ],
                 [
                     "2020",
+                    594.12,
+                    256.47,
+                    175.39
+                ],
+                [
+                    "2021",
                     594.12,
                     256.47,
                     175.39
@@ -166,9 +150,9 @@ export default {
             ],
             year:"",
             yearOptions:[
-                {"name": "2018年", "id": "1"},
-                {"name": "2019年", "id": "2"},
-                {"name": "2020年", "id": "4"},
+                {"name": "2019年", "id": "1"},
+                {"name": "2020年", "id": "2"},
+                {"name": "2021年", "id": "4"},
             ],
             type:"",
             typeOptions:[
@@ -176,6 +160,3555 @@ export default {
                 {"name": "整体推进类", "id": "2"},
                 {"name": "巩固提升类", "id": "4"},
             ],
+
+
+            countyOptions: [
+                {"name": "历下区", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+ params.value;    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "即墨区", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "胶州市", "value": "40",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "城阳区", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "兰山区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "龙口市", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "市中区1", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "滕州市", "value": "90",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "沂南县", "value": "93",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "市南区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "历城区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "章丘区", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "芝罘区", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "市北区", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "荣成市", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "黄岛区", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "崂山区", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "邹城市", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "寿光市", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "临淄区", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "肥城市", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "平度市", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }
+                    },
+                {"name": "招远市", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "张店区", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莱州市", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "诸城市", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莱芜区", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "东营区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "槐荫区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "广饶县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "桓台县", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "青州市", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "天桥区", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "邹平市", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "文登区", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莱西市", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "李沧区", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "任城区", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "兖州区", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "新泰市", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "东港区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "岚山区", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "高密市", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "泰山区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "东昌府区", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "滨城区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "曹县", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "淄川区", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "昌邑市", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "沂水县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莱阳市", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "郓城县", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "海阳市", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "东明县", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "费县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "微山县", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "环翠区", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莒县", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莱山区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "博兴县", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "罗庄区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "牡丹区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "蓬莱区", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "曲阜市", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "福山区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "巨野县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "齐河县", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "单县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "岱岳区", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "长清区", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "昌乐县", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "安丘市", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "牟平区", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "临朐县", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "郯城县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "潍城区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "茌平区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "河东区", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "奎文区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "钢城区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "栖霞市", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莒南县", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "德城区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "兰陵县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "乳山市", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "阳谷县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "临邑县", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "市中区2", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "沂源县", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "垦利区", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "鄄城县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "宁阳县", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "薛城区", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "禹城市", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "乐陵市", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "平邑县", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "梁山县", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "宁津县", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "利津县", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "平原县", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "临清市", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "无棣县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "博山区", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "平阴县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "陵城区", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "寒亭区", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "汶上县", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "莘县", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "阳信县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "嘉祥县", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "金乡县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "东平县", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "周村区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "冠县", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "定陶区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "济阳区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "临沭县", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "夏津县", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "惠民县", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "五莲县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "河口区", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "鱼台县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "泗水县", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "高青县", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "武城县", "value": "19.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "坊子区", "value": "29.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "蒙阴县", "value": "39.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "商河县", "value": "49.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "庆云县", "value": "59.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "沾化区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "成武县", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "高唐县", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "峄城区", "value": "99.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "东阿县", "value": "89.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "山亭区", "value": "79.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+                {"name": "台儿庄区", "value": "69.9",
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return params.name+"\n"+"("+ params.value+")";    //地图上展示文字 + 数值
+                            },
+                        }
+                    }},
+            ]
         }
     },
     computed: {},
@@ -197,75 +3730,62 @@ export default {
 
         //山东碳排放地图
         shandongMap() {
+            let that =this
             var myChart = this.$echarts.init(document.getElementById('chart_map'));
 
-            function showProvince() {
-                var geoCoordMap = {};
-                var data = [
-                    {
-                        name: '下河乡',
-                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
-                    },
-                    {
-                        name: '郭集',
-                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
-                    },
-                    {
-                        name: '辛店镇',
-                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
-                    },
-                    {
-                        name: '魏桥镇',
-                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
-                    },
-                    {
-                        name: '马山子镇',
-                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
-                    },
-                    {
-                        name: '商店镇',
-                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
-                    },
-                    {
-                        name: '湖滨镇',
-                        value: [50, '分布式光伏开发试点镇：<br/>项目承建企业24家<br/>发电服务站目前数量24个站点']
-                    }
-                ];
-                var max = 480,
-                    min = 9;
-                var maxSize4Pin = 50,
-                    minSize4Pin = 20;
-                var convertData = function (data) {
-                    var res = [];
-                    for (var i = 0; i < data.length; i++) {
-                        var geoCoord = geoCoordMap[data[i].name];
+            var data = that.countyOptions;
 
-                        if (geoCoord) {
-                            res.push({
-                                name: data[i].name,
-                                value: geoCoord.concat(data[i].value),
-                            });
-                        }
-                    }
-                    return res;
-                };
 
-                myChart.setOption({
-                    tooltip: {
-                        trigger: 'item',
-                        formatter: function loadData(result) {
-                            return result.name + '<br />' + result.value[3];
-                        }
+            myChart.setOption({
+                title: {
+                    text: ''
+                },
+                tooltip : {
+                    trigger: 'item',
+                     formatter: '{b}',
+                    itemSize:'14px'
+                },
+                dataRange: {
+                    x: 'left',
+                    y: 'center',
+                    splitList: [
+                        {start: 81, end: 100,label:  '示范引领类', color: '#17A15E'},
+                        {start: 51, end: 80, label: '整体推进类', color: '#1790A0'},
+                        {start: 1, end:50, label: '巩固提升类', color: '#116295'},
+                    ],
+                    textStyle: {
+                        color: '#3899FF' // 值域文字颜色
                     },
-                    geo: {
-                        zoom: 1.2,
-                        show: true,
+                    selectedMode: false,
+                    color: ['#E0022B', '#E09107', '#A3E00B']
+                },
+                series : [
+                    {
+                        name: '县域乡村振兴全景展示',
+                        type: 'map',
                         map: '山东',
                         mapType: '山东',
+                        mapLocation: {
+                            x: 'left'
+                        },
+                        zoom: 1.2,
+                        roam: true,
+                        show: true,
+                        itemStyle:{
+                            normal:{
+                                borderColor: "#FFFFFF",
+                                borderWidth: 1,
+                                label:{show:true}
+                            },
+                            emphasis: {
+                                areaColor: '#389BB7',
+                                borderWidth: 0
+                            }
+                        },
                         label: {
                             normal: {
                                 show: true,
-                                textStyle: {color: "#ffffff",fontSize: 8,}
+                                textStyle: {color: "#FFFFFF",fontSize: 10,}
                             },
                             emphasis: {
                                 show: true,
@@ -274,78 +3794,15 @@ export default {
                                 }
                             },
                         },
-                        roam: true,
-                        itemStyle: {
-                            normal: {
-                                borderColor: 'rgba(147, 235, 248, 1)',
-                                borderWidth: 2,
-                                areaColor: "#17A15E", //区域颜色
-                            },
-                            emphasis: {
-                                areaColor: '#389BB7',
-                                borderWidth: 0
-                            }
-                        }
-                    },
-                    series: [
-                        {
-                            name: '电商进农村示范县',
-                            type: 'scatter',
-                            coordinateSystem: 'geo',
-                            symbol: 'pin',
-                            symbolSize: function (val) {
-                                var a = (maxSize4Pin - minSize4Pin) / (max - min);
-                                var b = minSize4Pin - a * min;
-                                b = maxSize4Pin - a * max;
-                                return a * val[2] + b;
-                            },
-                            label: {
-                                normal: {
-                                    formatter: '{b}',
-                                    show: true,
-                                    textStyle: {
-                                        color: '#fff',
-                                        fontSize: 10,
-                                    }
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    color: 'red', //标志颜色
-                                }
-                            },
-                            zlevel: 6,
-                            data: convertData(data),
+                        showEffectOn: 'render',
+                        rippleEffect: {
+                            brushType: 'stroke'
                         },
-                        {
-                            type: 'effectScatter',
-                            coordinateSystem: 'geo',
-                            data: convertData(data.sort(function (a, b) {
-                                return b.value - a.value;
-                            }).slice(0, 47)),
-                            symbolSize: function (val) {
-                                return val[2] / 10;
-                            },
-                            showEffectOn: 'render',
-                            rippleEffect: {
-                                brushType: 'stroke'
-                            },
-                            hoverAnimation: true,
-                            itemStyle: {
-                                normal: {
-                                    color: '#05C3F9',
-                                    shadowBlur: 10,
-                                    shadowColor: '#05C3F9'
-                                }
-                            },
-                            zlevel: 1
-                        },
+                        hoverAnimation: true,
+                        data:data
+                    }],
+            });
 
-                    ]
-                });
-            }
-
-            showProvince();
             window.addEventListener("resize", function () {
                 myChart.resize();
             });
@@ -447,11 +3904,12 @@ export default {
         position: relative;
         .LeftText{
             width: 300px;
-            height: 200px;
+            height: 150px;
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 999999;
+            z-index: 99;
+       /*     background-color: #17A15E;*/
             .LeftTextTitle{
                 height: 40px;
                 line-height: 40px;
@@ -461,29 +3919,10 @@ export default {
                 font-weight: bold;
             }
             .LeftTextSelect{
-                margin-top: 10px;
+                margin-top: 20px;
                 padding-left: 20px;
                 position: relative;
                 z-index: 9999999999999999999;
-            }
-            .LeftTextExplain{
-                height: 80px;
-                margin-top: 20px;
-                .LeftTextExplainDiv{
-                    height: 20px;
-                    padding-left: 20px;
-                    margin-top: 5px;
-                    .LeftTextExplainL{
-                        width: 15px;
-                        height: 15px;
-                        margin-top: 2.5px;
-                        border-radius:2px ;
-                        margin-right: 5px;
-                    }
-                    .LeftTextExplainR{
-                        color: #1790A0;
-                    }
-                }
             }
 
         }
@@ -539,6 +3978,10 @@ export default {
         /deep/ td {
             padding: 2px ;
         }
+    }
+
+    /deep/  .el-scrollbar__view .el-select-dropdown__list{
+        background-color: #13ce66;
     }
 }
 
