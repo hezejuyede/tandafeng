@@ -19,6 +19,7 @@ import IndustrialProsperityPowerIndex from '../components/DataStatistics/Industr
 import LifeAffluenceElectricityIndexStatistics from '../components/DataStatistics/LifeAffluenceElectricityIndexStatistics.vue'
 import AgriculturalDevelopmentElectricityIndex from '../components/DataStatistics/AgriculturalDevelopmentElectricityIndex.vue'
 import HollowingRateStatistics from '../components/DataStatistics/HollowingRateStatistics.vue'
+import PanoramicDisplayOfCountyHollowingRateInTheWholeProvince from '../components/DataStatistics/PanoramicDisplayOfCountyHollowingRateInTheWholeProvince'
 
 Vue.use(Router);
 
@@ -37,6 +38,11 @@ export default new Router({
                     path: '/Index',
                     component: Index,
                     meta: {title: '系统首页'}
+                },
+                {
+                    path: '/PanoramicDisplayOfCountyHollowingRateInTheWholeProvince',
+                    component: PanoramicDisplayOfCountyHollowingRateInTheWholeProvince,
+                    meta: {title: '全省县域空心化率全景展示'}
                 },
 
                 {

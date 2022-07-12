@@ -3773,7 +3773,8 @@ export default {
                         show: true,
                         itemStyle:{
                             normal:{
-                                borderColor: "#FFFFFF",
+                                borderColor: "#f0f0f0",
+                                type:'dashed',
                                 borderWidth: 1,
                                 label:{show:true}
                             },

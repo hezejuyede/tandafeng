@@ -73,6 +73,11 @@
                     },
                     {
                         icon: 'iconfont el-icon-s-platform',
+                        index: '/PanoramicDisplayOfCountyHollowingRateInTheWholeProvince',
+                        title: '县域空心化率展示'
+                    },
+                    {
+                        icon: 'iconfont el-icon-video-camera-solid',
                         index: '/LargeDataScreen',
                         title: '县域电力指数'
                     },
