@@ -38,20 +38,6 @@ Vue.use(ElementUI, {size: 'small'});
 Vue.prototype.axios = axios;
 
 
-router.beforeEach((to, from, next) => {
-    let adminToken = localStorage.getItem("token");
-    if (to.path === '/login' || to.path === '/register') {
-        next();
-    }
-    else {
-        if (adminToken === null) {
-            next('/login');
-        }
-        else {
-            next();
-        }
-    }
-});
 
 
 new Vue({

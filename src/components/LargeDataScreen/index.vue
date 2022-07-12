@@ -4,90 +4,50 @@
         <div class="header">
             <div class="bg_header">
                 <div class="header_nav fl t_title">
-                    滨州市分布式光伏聚合运营平台
+                    山东省县域电力指数可视化展示
                 </div>
             </div>
         </div>
         <!--main-->
         <div class="data_content">
+
             <div class="data_main">
                 <div class="main_left fl">
                     <div class="left_1 t_btn6" style="cursor: pointer;">
-                        <!--左上边框-->
-                        <div class="t_line_box">
-                            <i class="t_l_line"></i>
-                            <i class="l_t_line"></i>
-                        </div>
-                        <!--右上边框-->
-                        <div class="t_line_box">
-                            <i class="t_r_line"></i>
-                            <i class="r_t_line"></i>
-                        </div>
-                        <!--左下边框-->
-                        <div class="t_line_box">
-                            <i class="l_b_line"></i>
-                            <i class="b_l_line"></i>
-                        </div>
-                        <!--右下边框-->
-                        <div class="t_line_box">
-                            <i class="r_b_line"></i>
-                            <i class="b_r_line"></i>
-                        </div>
+
+
                         <div class="main_title">
-                            <img src="./picture/t_1.png" alt="">
-                            滨州光伏发电趋势预测
+                            乡村振兴电力走势趋势
                         </div>
                         <div id="chart_1" class="chart" style="width:100%;height: 250px"></div>
                     </div>
                     <div class="left_2" style="cursor: pointer;">
-                        <div class="t_line_box">
-                            <i class="t_l_line"></i>
-                            <i class="l_t_line"></i>
-                        </div>
-                        <div class="t_line_box">
-                            <i class="t_r_line"></i>
-                            <i class="r_t_line"></i>
-                        </div>
-                        <div class="t_line_box">
-                            <i class="l_b_line"></i>
-                            <i class="b_l_line"></i>
-                        </div>
-                        <div class="t_line_box">
-                            <i class="r_b_line"></i>
-                            <i class="b_r_line"></i>
-                        </div>
-                        <div class="main_title">
-                            <img src="./picture/t_2.png" alt="">
-                            滨州县区光伏发电排名
-                        </div>
-                        <div id="chart_2" class="chart t_btn9" style="width:100%;height: 250px;"></div>
+
                     </div>
                 </div>
-                <div class="main_center fl">
+                <div class="main_center fl" style="position: relative">
+                    <div class="select">
+                        <el-select
+                            style="width: 130px;background-color: #409EFF"
+                            v-model="year"
+                            clearable
+                            filterable
+                            allow-create
+                            default-first-option
+                            placeholder="年份">
+                            <el-option
+                                v-for="item in yearOptions"
+                                :key="item.id"
+                                :label="item.name"
+                                :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </div>
                     <div class="center_text" style="position: relative;">
-                        <!--左上边框-->
-                        <div class="t_line_box">
-                            <i class="t_l_line"></i>
-                            <i class="l_t_line"></i>
-                        </div>
-                        <!--右上边框-->
-                        <div class="t_line_box">
-                            <i class="t_r_line"></i>
-                            <i class="r_t_line"></i>
-                        </div>
-                        <!--左下边框-->
-                        <div class="t_line_box">
-                            <i class="l_b_line"></i>
-                            <i class="b_l_line"></i>
-                        </div>
-                        <!--右下边框-->
-                        <div class="t_line_box">
-                            <i class="r_b_line"></i>
-                            <i class="b_r_line"></i>
-                        </div>
+
                         <div class="main_title" style="width: 200px; text-align: center">
                             <img src="./picture/t_3.png" alt="">
-                            滨州市数据中心
+                           山东省数据中心
                         </div>
                         <div id="chart_map" style="width:100%;height:610px;">
                         </div>
@@ -100,67 +60,35 @@
                             </ul>-->
                         </div>
                     </div>
-                </div>
+                    <div class="bottom">
+                        <div class="bottom1 fl">
+                            <div class="">乡村振兴电力综合指数</div>
+                            <div class="" id="bottom1"></div>
+                        </div>
+                        <div class="bottomT fl">
+                            <div class="bottomT1">产业兴旺</div>
+                            <div class="bottomT2">
+                                999.9
+                            </div>
+                        </div>
+                        <div class="bottomT fl">
+                            <div class="bottomT1">生活富裕</div>
+                            <div class="bottomT2">
+                                999.9
+                            </div>
 
-                <div class="main_right fr">
-                    <div class="right_1">
-                        <!--左上边框-->
-                        <div class="t_line_box">
-                            <i class="t_l_line"></i>
-                            <i class="l_t_line"></i>
                         </div>
-                        <!--右上边框-->
-                        <div class="t_line_box">
-                            <i class="t_r_line"></i>
-                            <i class="r_t_line"></i>
+                        <div class="bottomT fl">
+                            <div class="bottomT1">农业发展</div>
+                            <div class="bottomT2">
+                                999.9
+                            </div>
                         </div>
-                        <!--左下边框-->
-                        <div class="t_line_box">
-                            <i class="l_b_line"></i>
-                            <i class="b_l_line"></i>
-                        </div>
-                        <!--右下边框-->
-                        <div class="t_line_box">
-                            <i class="r_b_line"></i>
-                            <i class="b_r_line"></i>
-                        </div>
-                        <div class="main_title" style="width:250px;">
-                            <img src="./picture/t_4.png" alt="">
-                            电力行业发电达峰预测
-                        </div>
-                        <div id="chart_3" class="echart t_btn7" style="width:100%;height: 250px;"></div>
-                    </div>
-                    <div class="right_2">
-                        <!--左上边框-->
-                        <div class="t_line_box">
-                            <i class="t_l_line"></i>
-                            <i class="l_t_line"></i>
-                        </div>
-                        <!--右上边框-->
-                        <div class="t_line_box">
-                            <i class="t_r_line"></i>
-                            <i class="r_t_line"></i>
-                        </div>
-                        <!--左下边框-->
-                        <div class="t_line_box">
-                            <i class="l_b_line"></i>
-                            <i class="b_l_line"></i>
-                        </div>
-                        <!--右下边框-->
-                        <div class="t_line_box">
-                            <i class="r_b_line"></i>
-                            <i class="b_r_line"></i>
-                        </div>
-                        <div class="main_title" style="width:200px;">
-                            <img src="./picture/t_5.png" alt="">
-                            发电放峰值预测
-                        </div>
-                        <div id="chart_4" class="echart fl t_btn4"
-                             style="width:100%;height: 250px;cursor: pointer;"></div>
                     </div>
                 </div>
             </div>
         </div>
+
 
     </div>
 </template>
@@ -177,7 +105,14 @@
     export default {
         name: 'index',
         data() {
-            return {}
+            return {
+                year:"",
+                yearOptions:[
+                    {"name": "2019年", "id": "1"},
+                    {"name": "2020年", "id": "2"},
+                    {"name": "2021年", "id": "4"},
+                ],
+            }
         },
         computed: {},
         components: {},
@@ -191,121 +126,35 @@
 
             //页面初始
             doSearch() {
-                this.carbonEmissionPrediction();
-                this.carbonEmissionWarning();
-                this.electricityCarbonEmissionsPeak();
-                this.peakCarbonEmission();
                 this.shandongMap();
+                this.electricityCarbonEmissionsPeak();
+                this.carbonEmissionPrediction()
+
             },
 
             //全省碳排放趋势预测
             carbonEmissionPrediction() {
                 // 基于准备好的dom，初始化echarts实例
-                var myChart = this.$echarts.init(document.getElementById('chart_1'));
-                myChart.clear();
+                var myChart = this.$echarts.init(document.getElementById('bottom1'));
                 myChart.setOption({
-                    title: {
-                        text: ''
-                    },
                     tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data: [],
-                        textStyle: {
-                            color: '#fff'
-                        },
-                        top: '8%'
-                    },
-                    grid: {
-                        top: '30%',
-                        left: '3%',
-                        right: '4%',
-                        bottom: '3%',
-                        containLabel: true
-                    },
-                    color: ['#FF4949', '#FFA74D', '#FFEA51', '#4BF0FF', '#44AFF0', '#4E82FF', '#584BFF', '#BE4DFF', '#F845F1'],
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
-                        splitLine: {
-                            show: false
-                        },
-                        offset: 10,
-                        axisTick: { //y轴刻度线
-                            show: false,
-                        },
-                        axisLine: {
-                            lineStyle: {
-                                color: '#fff'
-                            }
-                        }
-                    },
-                    yAxis: {
-                        name: '单位万吨',
-                        nameTextStyle: {
-                            color: "#FFF",
-                            nameLocation: "center",
-                        },
-                        type: 'value',
-                        splitLine: {
-                            lineStyle: {
-                                color: "#3A4467"
-                            }
-                        },
-                        min: 5000,
-                        axisLine: {
-                            show: false,
-                        },
-                        axisTick: { //y轴刻度线
-                            show: false,
-                        },
-                        axisLabel: {
-                            textStyle: {
-                                color: "#FFF"
-                            }
-                        },
+                        formatter: '{a} <br/>{b} : {c}%'
                     },
                     series: [
                         {
-                            name: '碳排放量',
-                            lineStyle: {
-                                color: '#1DA0FF'
+                            name: 'Pressure',
+                            type: 'gauge',
+                            detail: {
+                                formatter: '{value}'
                             },
-                            smooth: false, //true 有弧度 ，false 没弧度（直线）
-                            symbol: 'circle',
-                            type: 'line',
-                            itemStyle: {
-                                normal: {
-                                    color: '#1DA0FF'
+                            data: [
+                                {
+                                    value: 50,
+                                    name: 'SCORE'
                                 }
-                            },
-                            markPoint: {
-                                symbol: 'circle',
-                                symbolSize: 10,
-
-                                itemStyle: {
-                                    normal: {
-                                        color: '#F48D01',
-                                        label: {
-                                            show: true,
-                                            color: '#FFF',
-                                            position: 'bottom',
-                                        }
-                                    }
-                                },
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            },
-                            data: [7100, 6600, 6200, 5900, 5810, 6700, 6800, 7550, 7100, 6950, 6900, 7713]
+                            ]
                         }
                     ]
-                });
-                window.addEventListener("resize", function () {
-                    myChart.resize();
                 });
             },
 
@@ -421,7 +270,7 @@
             //电力行业碳排放达峰预测
             electricityCarbonEmissionsPeak() {
                 // 基于准备好的dom，初始化echarts实例
-                var myChart = this.$echarts.init(document.getElementById('chart_3'));
+                var myChart = this.$echarts.init(document.getElementById('chart_1'));
                 myChart.clear();
                 myChart.setOption({
                     title: {
@@ -431,9 +280,10 @@
                         trigger: 'axis'
                     },
                     legend: {
-                        data: ['低碳情景', '基准情景', '高耗能情景'],
+                        data: ['电力综合指数', '产业兴旺', '生活富裕', '农业发展'],
                         textStyle: {
-                            color: '#fff'
+                            color: '#fff',
+                            fontSize: '10'
                         },
                         top: '8%'
                     },
@@ -444,11 +294,11 @@
                         bottom: '5%',
                         containLabel: true
                     },
-                    color: ['#FF4949', '#FFA74D', '#FFEA51', '#4BF0FF', '#44AFF0', '#4E82FF', '#584BFF', '#BE4DFF', '#F845F1'],
+                    color: ['#00C6CE', '#A476CD', '#A68A15', '#65BB2D'],
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
-                        data: ['2018', '2022', '2026', '2030', '2034', '2038', '2042', '2046', '2050'],
+                        data: ['2019', '2020', '2021'],
                         splitLine: {
                             show: false
                         },
@@ -463,7 +313,7 @@
                         }
                     },
                     yAxis: {
-                        name: '单位万吨',
+                        name: '',
                         nameTextStyle: {
                             color: "#FFF",
                             nameLocation: "center",
@@ -489,10 +339,10 @@
                     },
                     series: [
                         {
-                            name: '低碳情景',
+                            name: '电力综合指数',
                             type: 'line',
                             lineStyle: {
-                                color: '#53C7A0'
+                                color: '#00C6CE'
                             },
                             smooth: false, //true 有弧度 ，false 没弧度（直线）
                             symbol: 'circle',
@@ -501,13 +351,13 @@
                                     color: '#53C7A0'
                                 }
                             },
-                            data: [78, 90, 108, 105, 95, 86, 76, 72, 73]
+                            data: [78, 90, 108]
                         },
                         {
-                            name: '基准情景',
+                            name: '产业兴旺',
                             type: 'line',
                             lineStyle: {
-                                color: '#28A1FB'
+                                color: '#A476CD'
                             },
                             smooth: false, //true 有弧度 ，false 没弧度（直线）
                             symbol: 'circle',
@@ -516,10 +366,10 @@
                                     color: '#28A1FB'
                                 }
                             },
-                            data: [78, 89, 98, 108, 109, 105, 97, 86, 69.4]
+                            data: [78, 89, 98]
                         },
                         {
-                            name: '高耗能情景',
+                            name: '生活富裕',
                             type: 'line',
                             lineStyle: {
                                 color: '#E37A17'
@@ -528,10 +378,25 @@
                             symbol: 'circle',
                             itemStyle: {
                                 normal: {
+                                    color: '#A68A15'
+                                }
+                            },
+                            data: [61, 76, 83]
+                        },
+                        {
+                            name: '农业发展',
+                            type: 'line',
+                            lineStyle: {
+                                color: '#65BB2D'
+                            },
+                            smooth: false, //true 有弧度 ，false 没弧度（直线）
+                            symbol: 'circle',
+                            itemStyle: {
+                                normal: {
                                     color: '#E37A17'
                                 }
                             },
-                            data: [81, 86, 93, 105, 118, 126, 128, 124, 107]
+                            data: [71, 76, 79,]
                         },
                     ]
                 });
@@ -927,6 +792,71 @@
         padding: 2px 5px;
         color: #fff;
         cursor: pointer;
+    }
+
+
+    .select{
+        width: 200px;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999999999;
+    }
+
+    /deep/ .el-select > .el-input {
+        display: block;
+        background-color: #052450;
+    }
+    .bottom{
+        position: absolute;
+        left: 0;
+        bottom: -50px;
+        width: 100%;
+        height:100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #4b8df8;
+
+    }
+    .bottom1{
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+        height: 100%;
+    }
+    .bottomT{
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction:column;
+    }
+
+    .bottomT1 {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .bottomT2 {
+        flex: 1;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:#05295C;
+        font-size: 18px;
+        color: #01BB49;
     }
 
 </style>

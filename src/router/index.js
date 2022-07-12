@@ -5,13 +5,8 @@ import {getItem} from '../utils/storage'
 //主页相关路由
 import Index from '../components/index/index'
 
-
-
-
 //数据大屏
 import LargeDataScreen from '../components/LargeDataScreen/index'
-
-
 
 //数据统计
 import RuralRevitalizationComprehensivePowerIndex from '../components/DataStatistics/RuralRevitalizationComprehensivePowerIndex.vue'
@@ -84,10 +79,6 @@ export default new Router({
                     meta: {title: '403'}
                 }
             ]
-        },
-        {
-            path: '/login',
-            component: resolve => require(['../components/indexLogin/Login.vue'], resolve)
         },
         {
             path: '/LargeDataScreen',
